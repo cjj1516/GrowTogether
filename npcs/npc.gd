@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name Npc
 
-enum NpcColor {ORANGE, PURPLE, GREEN}
+enum NpcColor {ORANGE, PURPLE, GREEN, BLUE}
 
 @export var npc_color: NpcColor = NpcColor.ORANGE
 
@@ -9,6 +9,7 @@ enum NpcColor {ORANGE, PURPLE, GREEN}
 @export var texture_orange: Texture2D
 @export var texture_purple: Texture2D
 @export var texture_green: Texture2D
+@export var texture_blue: Texture2D
 
 @export_category("Movin' Settings")
 @export var move_speed: float = 60.0
@@ -59,6 +60,8 @@ func set_color() -> void:
 			sprite_2d.texture = texture_green
 		NpcColor.PURPLE:
 			sprite_2d.texture = texture_purple
+		NpcColor.BLUE:
+			sprite_2d.texture = texture_blue
 
 #this will be completely unneccasary when we are in 3d but for now it works
 func setup_viewport_bounds() -> void:
