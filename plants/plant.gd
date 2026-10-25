@@ -30,7 +30,8 @@ func _process(delta: float) -> void:
 		pass
 	pass
 
-
+# you have to call this function when you make a new plant, name is the same as
+# the plant's resource
 func set_plant_type(name: String):
 	var filepath = ("res://plants/resources/{name}.tres"
 		.format({"name": name}))
