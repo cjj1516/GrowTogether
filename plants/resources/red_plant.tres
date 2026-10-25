@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="PlantResource" format=3 uid="uid://bgu281dselhii"]
+
+[ext_resource type="Texture2D" uid="uid://dywnp575r3ye0" path="res://plants/resources/images/red_plant.png" id="1_c7olg"]
+[ext_resource type="Script" uid="uid://m25xs0e611q5" path="res://plants/resources/plant_resource.gd" id="1_exw1d"]
+
+[resource]
+script = ExtResource("1_exw1d")
+compressed_texture = ExtResource("1_c7olg")
+thirst_limit = 25.0
+metadata/_custom_type_script = "uid://m25xs0e611q5"

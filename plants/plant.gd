@@ -17,15 +17,30 @@ var drink_timer: float
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	plant_resource.prepare_resource(self)
-	$Sprite2D.texture = plant_resource.texture
 	thirst_timer = 0
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if (plant_resource == null):
+		return
 	thirst_timer += delta
 	if (thirst_timer >= plant_resource.thirst_limit):
 		pass
+	pass
+
+
+func set_plant_type(name: String):
+	var filepath = ("res://plants/resources/{name}.tres"
+		.format({"name": name}))
+	plant_resource = load(filepath)
+	
+	if plant_resource == null:
+		print(("Attempt to set plant to type {name} (filepath {filepath}) failed.")
+			.format({"name": name, "filepath": filepath}))
+		return
+	
+	plant_resource.prepare_resource(self)
+	$Sprite2D.texture = plant_resource.texture
 	pass
