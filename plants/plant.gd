@@ -18,7 +18,7 @@ var drink_timer: float
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	thirst_timer = 0
-	pass # Replace with function body.
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -29,6 +29,7 @@ func _process(delta: float) -> void:
 	if (thirst_timer >= plant_resource.thirst_limit):
 		pass
 	pass
+
 
 # you have to call this function when you make a new plant, name is the same as
 # the plant's resource

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Grow Together"
-run/main_scene="uid://d1w0rkidisdya"
+run/main_scene="uid://tuc1i26umpgd"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://intake/icon.svg"
 
