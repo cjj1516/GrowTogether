@@ -1,3 +1,10 @@
 [gd_scene format=3 uid="uid://d1w0rkidisdya"]
 
+[ext_resource type="Script" uid="uid://ovh0a4hjv3wo" path="res://plants/plant.gd" id="1_2vmhr"]
+[ext_resource type="Resource" uid="uid://c3nomi4a27j4j" path="res://plants/resources/plant_resource.tres" id="2_8i23g"]
+
 [node name="Plant" type="Node2D" unique_id=1464187394]
+script = ExtResource("1_2vmhr")
+plant_resource = ExtResource("2_8i23g")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1047902305]
