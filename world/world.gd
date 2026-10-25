@@ -22,7 +22,6 @@ func _process(delta: float) -> void:
 func _input(event):
 	# Mouse in viewport coordinates.
 	if event is InputEventMouseButton and event.pressed:
-		print("Mouse Click/Unclick at: ", event.position)
 		spawn_plant(event.position, "blue_plant")
 
 
