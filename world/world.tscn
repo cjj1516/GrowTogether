@@ -4,3 +4,5 @@
 
 [node name="World" type="Node2D" unique_id=773245886]
 script = ExtResource("1_6xmxd")
+
+[node name="GUI" type="CanvasLayer" parent="." unique_id=2058711903]
