@@ -8,7 +8,7 @@ script = ExtResource("1_6xmxd")
 
 [node name="NPC" parent="." unique_id=173596275 instance=ExtResource("2_tcf2h")]
 position = Vector2(588, 346)
-npc_color = 1
+npc_color = 3
 
 [node name="NPC2" parent="." unique_id=1778615973 instance=ExtResource("2_tcf2h")]
 position = Vector2(210, 160)
