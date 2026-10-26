@@ -6,4 +6,4 @@
 
 ## Project Overview
 
-WIP
+A game about making a garden for your community!
