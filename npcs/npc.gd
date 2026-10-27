@@ -101,10 +101,10 @@ func pick_target() -> void:
 	)
 
 func action_decision() -> void:
-	#30% chance to do each thing 
+	#50% chance to water, 25 to wander 25 to idle 
 	var availale_plant = get_plant()
 	
-	if randf() < 0.3:
+	if randf() < 0.5:
 		plant_node = availale_plant
 		current_state = State.WANTPLANT
 	else:
@@ -145,6 +145,8 @@ func handle_wantplant() -> void:
 		velocity = Vector2.ZERO
 		current_state = State.ATPLANT
 		plant_node.water_plant()
+		give_seeds()
+		
 		var pause_timer = get_tree().create_timer(randf_range(2,3))
 		pause_timer.timeout.connect(done_interacting)
 
@@ -152,3 +154,14 @@ func done_interacting() -> void:
 	plant_node = null
 	pick_target()
 	current_state = State.WANDERING
+	
+func give_seeds() -> void:
+	
+	var sprite = plant_node.get_node("Sprite2D") as Sprite2D
+	var texture_path = sprite.texture.resource_path
+	var file_name = texture_path.get_file().get_basename()
+	
+	var world_node = get_tree().current_scene
+	var seeds_to_give = randi_range(0, 2)
+	world_node.add_plant_to_inventory(file_name, seeds_to_give)
+	world_node.attempt_to_select_what_to_plant(file_name)
