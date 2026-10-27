@@ -46,7 +46,7 @@ func _physics_process(delta: float) -> void:
 		State.WANTPLANT:
 			handle_wantplant()
 		State.ATPLANT:
-			#this one doesnt rlly do anything at the moment but this is where any watering interaction will go
+			
 			pass
 	
 	move_and_slide()
@@ -144,7 +144,7 @@ func handle_wantplant() -> void:
 	if global_position.distance_to(target_pos) < 15.0:
 		velocity = Vector2.ZERO
 		current_state = State.ATPLANT
-		
+		plant_node.water_plant()
 		var pause_timer = get_tree().create_timer(randf_range(2,3))
 		pause_timer.timeout.connect(done_interacting)
 
