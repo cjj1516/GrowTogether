@@ -46,3 +46,7 @@ func set_plant_type(name: String):
 	plant_resource.prepare_resource(self)
 	$Sprite2D.texture = plant_resource.texture
 	pass
+	
+func water_plant(timer_reduction: float = 0):
+	thirst_timer = 0 if timer_reduction == 0 else thirst_timer - min(thirst_timer, timer_reduction)
+	return
