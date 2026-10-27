@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://be64fexypk4tr"]
+
+[ext_resource type="Script" uid="uid://c5qe5ojwdxl41" path="res://npcs/npc.gd" id="1_owtk7"]
+[ext_resource type="Texture2D" uid="uid://cks2vqeqkk38i" path="res://npcs/Sprites/Circle.png" id="2_ytd82"]
+[ext_resource type="Texture2D" uid="uid://b4yvi3ydijy10" path="res://npcs/Sprites/Triangle.png" id="3_5hmco"]
+[ext_resource type="Texture2D" uid="uid://ccfj6c76tp8gs" path="res://npcs/Sprites/SquareSprite-export.png" id="4_gp5m4"]
+[ext_resource type="Texture2D" uid="uid://dp8ag1lu2tcon" path="res://npcs/Sprites/Crescent.png" id="5_gp5m4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_owtk7"]
+radius = 40.4475
+
+[node name="NPC" type="CharacterBody2D" unique_id=173596275]
+script = ExtResource("1_owtk7")
+texture_orange = ExtResource("2_ytd82")
+texture_purple = ExtResource("3_5hmco")
+texture_green = ExtResource("4_gp5m4")
+texture_blue = ExtResource("5_gp5m4")
+edge_padding = 70.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1933327233]
+texture = ExtResource("2_ytd82")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1950756147]
+shape = SubResource("CircleShape2D_owtk7")
