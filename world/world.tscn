@@ -20,6 +20,7 @@ size = Vector3(1, 0.1484375, 1)
 
 [node name="NPC" parent="." unique_id=1856237465 instance=ExtResource("2_tcf2h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.22344637, 0)
+npc_color = 2
 move_speed = 1.0
 edge_padding = 10.0
 

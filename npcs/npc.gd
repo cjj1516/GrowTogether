@@ -16,6 +16,14 @@ enum NpcColor {ORANGE, PURPLE, GREEN, BLUE}
 @export var edge_padding: float = 1.0
 #this stops the little character from going to the direct edge^
 
+@export_category("Squash and Stretch")
+@export var stretch_amount: float = 0.25
+@export var bounce_frequency: float = 16.0
+
+var walk_anim_time: float = 0.0
+var base_sprite_scale: Vector3 = Vector3.ONE
+
+
 @export_category("Bounds")
 @export var wander_bounds: Rect2 = Rect2(-10,-10, 20, 20)
 
@@ -31,7 +39,7 @@ var plant_node: Node3D = null
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	set_color()
-	
+	base_sprite_scale = sprite_3d.scale
 	pick_target()
 	pass 
 
@@ -50,6 +58,7 @@ func _physics_process(delta: float) -> void:
 			pass
 	
 	move_and_slide()
+	squash_and_stretch(delta)
 
 func set_color() -> void:
 	#I <3 match statements
@@ -148,3 +157,17 @@ func give_seeds() -> void:
 	var seeds_to_give = randi_range(0, 2)
 	world_node.add_plant_to_inventory(file_name, seeds_to_give)
 	world_node.attempt_to_select_what_to_plant(file_name)
+
+func squash_and_stretch(delta:float) -> void:
+	if velocity.length_squared() > 0.1 and current_state != State.IDLE:
+		walk_anim_time += delta * bounce_frequency
+		
+		#sine wave for stretching 
+		var stretch = sin(walk_anim_time) * stretch_amount
+		
+		sprite_3d.scale.y = base_sprite_scale.y * (1.0 + stretch)
+		sprite_3d.scale.x = base_sprite_scale.x * (1.0 - stretch * 0.5)
+		sprite_3d.scale.z = base_sprite_scale.x * (1.0 - stretch * 0.5)
+	else:
+		walk_anim_time = 0.0
+		sprite_3d.scale = sprite_3d.scale.lerp(base_sprite_scale, delta * 12.0)
