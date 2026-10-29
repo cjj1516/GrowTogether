@@ -2,7 +2,8 @@
 
 [ext_resource type="Script" uid="uid://ovh0a4hjv3wo" path="res://plants/plant.gd" id="1_2vmhr"]
 
-[node name="Plant" type="Node2D" unique_id=1464187394]
+[node name="Plant" type="Node3D" unique_id=630787401]
 script = ExtResource("1_2vmhr")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1047902305]
+[node name="Sprite" type="Sprite3D" parent="." unique_id=397440641]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.44743204, 0)
