@@ -66,11 +66,11 @@ func set_color() -> void:
 
 
 #grabs plant from the list
-func get_plant() -> Node2D:
+func get_plant() -> Node3D:
 	var world_node = get_tree().current_scene
 	var plants = world_node.plant_list
 	if !plants.is_empty():
-		return plants.pick_random() as Node2D
+		return plants.pick_random() as Node3D
 	else:
 		return null
 
