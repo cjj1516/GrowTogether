@@ -24,3 +24,5 @@ size = Vector3(1, 0.1484375, 1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.22344637, 0)
 move_speed = 1.0
 edge_padding = 10.0
+
+[node name="GUI" type="CanvasLayer" parent="." unique_id=2131960766]
