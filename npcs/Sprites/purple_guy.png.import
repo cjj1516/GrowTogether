@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://xivq3vi4slni"
-path="res://.godot/imported/purpleGuy.png-709c9ce703f8eefd2d884b42fb6f3da6.ctex"
+path="res://.godot/imported/purple_guy.png-a4b739048f7f26c00880933e6691a087.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://npcs/Sprites/purpleGuy.png"
-dest_files=["res://.godot/imported/purpleGuy.png-709c9ce703f8eefd2d884b42fb6f3da6.ctex"]
+source_file="res://npcs/Sprites/purple_guy.png"
+dest_files=["res://.godot/imported/purple_guy.png-a4b739048f7f26c00880933e6691a087.ctex"]
 
 [params]
 

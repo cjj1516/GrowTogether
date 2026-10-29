@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://yk7qjgai6vri"
-path="res://.godot/imported/greenGuy.png-2e41d2f26286815a2932e1f84ad14bcb.ctex"
+uid="uid://ccfj6c76tp8gs"
+path="res://.godot/imported/square.png-2d4e1532d6262d1f784bc3531055f459.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://npcs/Sprites/greenGuy.png"
-dest_files=["res://.godot/imported/greenGuy.png-2e41d2f26286815a2932e1f84ad14bcb.ctex"]
+source_file="res://npcs/Sprites/square.png"
+dest_files=["res://.godot/imported/square.png-2d4e1532d6262d1f784bc3531055f459.ctex"]
 
 [params]
 

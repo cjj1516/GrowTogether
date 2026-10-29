@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dp8ag1lu2tcon"
-path="res://.godot/imported/Crescent.png-91143808f14bd1108779db57f373b625.ctex"
+path="res://.godot/imported/crescent.png-bda3768da493468f2804895ea89a519f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://npcs/Sprites/Crescent.png"
-dest_files=["res://.godot/imported/Crescent.png-91143808f14bd1108779db57f373b625.ctex"]
+source_file="res://npcs/Sprites/crescent.png"
+dest_files=["res://.godot/imported/crescent.png-bda3768da493468f2804895ea89a519f.ctex"]
 
 [params]
 

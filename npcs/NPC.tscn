@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://be64fexypk4tr"]
 
 [ext_resource type="Script" uid="uid://c5qe5ojwdxl41" path="res://npcs/npc.gd" id="1_owtk7"]
-[ext_resource type="Texture2D" uid="uid://cte8pefxjgpk2" path="res://npcs/Sprites/orangeGuy.png" id="2_kol2k"]
-[ext_resource type="Texture2D" uid="uid://xivq3vi4slni" path="res://npcs/Sprites/purpleGuy.png" id="3_pnbr5"]
-[ext_resource type="Texture2D" uid="uid://yk7qjgai6vri" path="res://npcs/Sprites/greenGuy.png" id="4_3tsbl"]
-[ext_resource type="Texture2D" uid="uid://cbt0aa66jp31x" path="res://npcs/Sprites/blueGuy.png" id="5_qposl"]
+[ext_resource type="Texture2D" uid="uid://cte8pefxjgpk2" path="res://npcs/Sprites/orange_guy.png" id="2_kol2k"]
+[ext_resource type="Texture2D" uid="uid://xivq3vi4slni" path="res://npcs/Sprites/purple_guy.png" id="3_pnbr5"]
+[ext_resource type="Texture2D" uid="uid://yk7qjgai6vri" path="res://npcs/Sprites/green_guy.png" id="4_3tsbl"]
+[ext_resource type="Texture2D" uid="uid://cbt0aa66jp31x" path="res://npcs/Sprites/blue_guy.png" id="5_qposl"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_gp5m4"]
 height = 0.9501953
