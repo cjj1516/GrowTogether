@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cbt0aa66jp31x"
-path="res://.godot/imported/blueGuy.png-5b37c002961c8d42257b0fcc21add393.ctex"
+path="res://.godot/imported/blue_guy.png-ac7f8405b88eb0615f841509a0e1e220.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://npcs/Sprites/blueGuy.png"
-dest_files=["res://.godot/imported/blueGuy.png-5b37c002961c8d42257b0fcc21add393.ctex"]
+source_file="res://npcs/Sprites/blue_guy.png"
+dest_files=["res://.godot/imported/blue_guy.png-ac7f8405b88eb0615f841509a0e1e220.ctex"]
 
 [params]
 

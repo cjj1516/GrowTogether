@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cny3fhm7eaay7" path="res://world/world_old.gd" id="1_6xmxd"]
 [ext_resource type="PackedScene" uid="uid://be64fexypk4tr" path="res://npcs/NPC.tscn" id="2_tcf2h"]
+[ext_resource type="Script" uid="uid://cfn5dsi0mhrom" path="res://Camera/camera_rig.gd" id="3_4717r"]
 
 [sub_resource type="Environment" id="Environment_oracd"]
 background_mode = 1
@@ -13,9 +14,6 @@ script = ExtResource("1_6xmxd")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1556400846]
 environment = SubResource("Environment_oracd")
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=2050715352]
-transform = Transform3D(1, 0, 0, 0, 0.9244012, 0.3814215, 0, -0.3814215, 0.9244012, -2.3841858e-07, 1.7269819, 3.4151733)
-
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1991369096]
 transform = Transform3D(16.347387, 0, 0, 0, 1, 0, 0, 0, 16.735907, 0, -0.42578125, 0)
 size = Vector3(1, 0.1484375, 1)
@@ -24,3 +22,9 @@ size = Vector3(1, 0.1484375, 1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.22344637, 0)
 move_speed = 1.0
 edge_padding = 10.0
+
+[node name="CameraRig" type="Node3D" parent="." unique_id=1461973205]
+script = ExtResource("3_4717r")
+
+[node name="Camera3D" type="Camera3D" parent="CameraRig" unique_id=2050715352]
+transform = Transform3D(1, 0, 0, 0, 0.9244012, 0.3814215, 0, -0.3814215, 0.9244012, -2.3841858e-07, 1.7269819, 3.4151733)
