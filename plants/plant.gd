@@ -1,4 +1,4 @@
-extends Node2D
+extends Node3D
 class_name Plant
 
 # Godot's custom resources seem very helpful in terms of defining multiple
@@ -47,7 +47,7 @@ func set_plant_type(name: String):
 		return
 	
 	plant_resource.prepare_resource(self)
-	$Sprite2D.texture = plant_resource.texture
+	$Sprite.texture = plant_resource.texture
 	pass
 	
 func water_plant(timer_reduction: float = 0):

@@ -81,6 +81,7 @@ func pick_target() -> void:
 	var random_z = randf_range(wander_bounds.position.y + edge_padding, wander_bounds.position.y + wander_bounds.size.y - edge_padding)
 	target_pos = Vector3(random_x, global_position.y, random_z)
 
+
 func action_decision() -> void:
 	#50% chance to water, 25 to wander 25 to idle 
 	var availale_plant = get_plant()
@@ -97,6 +98,7 @@ func action_decision() -> void:
 			current_state = State.WANDERING
 			pick_target()
 
+
 func handle_wander() -> void:
 	#flat so we can just ignore height difference
 	var target_flat = Vector3(target_pos.x, global_position.y, target_pos.z)
@@ -107,13 +109,15 @@ func handle_wander() -> void:
 		velocity = Vector3.ZERO
 		action_decision()
 
+
 func handle_idle(delta: float) -> void:
 	timer -= delta
 	velocity = Vector3.ZERO
 	if timer <= 0.0:
 		pick_target()
 		current_state = State.WANDERING
-		
+
+
 func handle_wantplant() -> void:
 	if not is_instance_valid(plant_node):
 		pick_target()
@@ -133,14 +137,15 @@ func handle_wantplant() -> void:
 		var pause_timer = get_tree().create_timer(randf_range(2,3))
 		pause_timer.timeout.connect(done_interacting)
 
+
 func done_interacting() -> void:
 	plant_node = null
 	pick_target()
 	current_state = State.WANDERING
-	
+
+
 func give_seeds() -> void:
-	
-	var sprite = plant_node.get_node("Sprite3D") as Sprite3D
+	var sprite = plant_node.get_node("Sprite") as Sprite3D
 	var texture_path = sprite.texture.resource_path
 	var file_name = texture_path.get_file().get_basename()
 	

@@ -6,6 +6,6 @@ class_name PlantResource
 var texture: Texture2D
 @export var thirst_limit: float
 
-func prepare_resource(plant: Node2D):
+func prepare_resource(plant: Node3D):
 	texture = compressed_texture
 	pass
