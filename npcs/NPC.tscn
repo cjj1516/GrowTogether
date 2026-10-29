@@ -6,10 +6,11 @@
 [ext_resource type="Texture2D" uid="uid://yk7qjgai6vri" path="res://npcs/Sprites/greenGuy.png" id="4_3tsbl"]
 [ext_resource type="Texture2D" uid="uid://cbt0aa66jp31x" path="res://npcs/Sprites/blueGuy.png" id="5_qposl"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_owtk7"]
-radius = 40.4475
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_gp5m4"]
+height = 0.9501953
+radius = 0.42382813
 
-[node name="NPC" type="CharacterBody2D" unique_id=173596275]
+[node name="NPC" type="CharacterBody3D" unique_id=1856237465]
 collision_layer = 2
 script = ExtResource("1_owtk7")
 texture_orange = ExtResource("2_kol2k")
@@ -17,10 +18,13 @@ texture_purple = ExtResource("3_pnbr5")
 texture_green = ExtResource("4_3tsbl")
 texture_blue = ExtResource("5_qposl")
 edge_padding = 70.0
+wander_bounds = Rect2(-5, -5, 10, 10)
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1933327233]
-scale = Vector2(0.1417434, 0.1417434)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1773385299]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.021972656, 0)
+shape = SubResource("CylinderShape3D_gp5m4")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=2006976760]
+transform = Transform3D(0.15748288, 0, 0, 0, 0.15748288, 0, 0, 0, 0.15748288, 0, 0, 0)
+billboard = 1
 texture = ExtResource("2_kol2k")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1950756147]
-shape = SubResource("CircleShape2D_owtk7")

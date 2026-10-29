@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends CharacterBody3D
 class_name Npc
 
 enum NpcColor {ORANGE, PURPLE, GREEN, BLUE}
@@ -12,26 +12,26 @@ enum NpcColor {ORANGE, PURPLE, GREEN, BLUE}
 @export var texture_blue: Texture2D
 
 @export_category("Movin' Settings")
-@export var move_speed: float = 60.0
-@export var edge_padding: float = 50.0
+@export var move_speed: float = 3.0
+@export var edge_padding: float = 1.0
 #this stops the little character from going to the direct edge^
 
-#wandering distance just for this iteration gonna be different with adding rooms and such will use collision or a raycast for detecting then
-var room_bounds: Rect2 
+@export_category("Bounds")
+@export var wander_bounds: Rect2 = Rect2(-10,-10, 20, 20)
 
-@onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var sprite_3d: Sprite3D = $Sprite3D
 
 enum State {WANDERING, IDLE, WANTPLANT, ATPLANT}
 var current_state: State = State.WANDERING
 
 
-var target_pos: Vector2 = Vector2.ZERO
+var target_pos: Vector3 = Vector3.ZERO
 var timer: float =0.0
-var plant_node: Node2D = null
+var plant_node: Node3D = null
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	set_color()
-	setup_viewport_bounds()
+	
 	pick_target()
 	pass 
 
@@ -55,33 +55,15 @@ func set_color() -> void:
 	#I <3 match statements
 	match npc_color:
 		NpcColor.ORANGE:
-			sprite_2d.texture = texture_orange
+			sprite_3d.texture = texture_orange
 		NpcColor.GREEN:
-			sprite_2d.texture = texture_green
+			sprite_3d.texture = texture_green
 		NpcColor.PURPLE:
-			sprite_2d.texture = texture_purple
+			sprite_3d.texture = texture_purple
 		NpcColor.BLUE:
-			sprite_2d.texture = texture_blue
+			sprite_3d.texture = texture_blue
 
-#this will be completely unneccasary when we are in 3d but for now it works
-func setup_viewport_bounds() -> void:
-	
-	var vp = get_viewport()
-	var vp_rect = vp.get_visible_rect()
-	
-	var center = Vector2.ZERO
-	var camera = vp.get_camera_2d()
-	if camera:
-		center = camera.get_screen_center_position()
-	else:
-		center = vp_rect.size / 2.0
-	
-	room_bounds = Rect2(
-		center.x - (vp_rect.size.x / 2.0) + edge_padding,
-		center.y - (vp_rect.size.y / 2.0) + edge_padding,
-		vp_rect.size.x - (edge_padding * 2.0),
-		vp_rect.size.y - (edge_padding * 2.0)
-	)
+
 
 #grabs plant from the list
 func get_plant() -> Node2D:
@@ -94,11 +76,10 @@ func get_plant() -> Node2D:
 
 
 func pick_target() -> void:
-	#random area inside the viewport
-	target_pos = Vector2(
-		randf_range(room_bounds.position.x, room_bounds.position.x + room_bounds.size.x),
-		randf_range(room_bounds.position.y, room_bounds.position.y + room_bounds.size.y)
-	)
+	#random area inside the dedicated area!
+	var random_x = randf_range(wander_bounds.position.x + edge_padding, wander_bounds.position.x + wander_bounds.size.x - edge_padding)
+	var random_z = randf_range(wander_bounds.position.y + edge_padding, wander_bounds.position.y + wander_bounds.size.y - edge_padding)
+	target_pos = Vector3(random_x, global_position.y, random_z)
 
 func action_decision() -> void:
 	#50% chance to water, 25 to wander 25 to idle 
@@ -117,17 +98,18 @@ func action_decision() -> void:
 			pick_target()
 
 func handle_wander() -> void:
-	
-	var direction = global_position.direction_to(target_pos)
+	#flat so we can just ignore height difference
+	var target_flat = Vector3(target_pos.x, global_position.y, target_pos.z)
+	var direction = global_position.direction_to(target_flat)
 	velocity = direction * move_speed
 	
 	if global_position.distance_to(target_pos) < 5.0:
-		velocity = Vector2.ZERO
+		velocity = Vector3.ZERO
 		action_decision()
 
 func handle_idle(delta: float) -> void:
 	timer -= delta
-	velocity = Vector2.ZERO
+	velocity = Vector3.ZERO
 	if timer <= 0.0:
 		pick_target()
 		current_state = State.WANDERING
@@ -137,12 +119,13 @@ func handle_wantplant() -> void:
 		pick_target()
 		current_state = State.WANDERING
 		return
-	target_pos = plant_node.global_position
+	var plant_flat = Vector3(plant_node.global_position.x, global_position.y,plant_node.global_position.z)
+	target_pos = plant_flat
 	var direction = global_position.direction_to(target_pos)
 	velocity = direction * move_speed
 	
-	if global_position.distance_to(target_pos) < 15.0:
-		velocity = Vector2.ZERO
+	if global_position.distance_to(target_pos) < 1.0:
+		velocity = Vector3.ZERO
 		current_state = State.ATPLANT
 		plant_node.water_plant()
 		give_seeds()
@@ -157,7 +140,7 @@ func done_interacting() -> void:
 	
 func give_seeds() -> void:
 	
-	var sprite = plant_node.get_node("Sprite2D") as Sprite2D
+	var sprite = plant_node.get_node("Sprite3D") as Sprite3D
 	var texture_path = sprite.texture.resource_path
 	var file_name = texture_path.get_file().get_basename()
 	
