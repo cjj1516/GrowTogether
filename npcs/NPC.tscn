@@ -17,8 +17,7 @@ texture_orange = ExtResource("2_kol2k")
 texture_purple = ExtResource("3_pnbr5")
 texture_green = ExtResource("4_3tsbl")
 texture_blue = ExtResource("5_qposl")
-edge_padding = 70.0
-wander_bounds = Rect2(-5, -5, 10, 10)
+edge_padding = 10.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1773385299]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.021972656, 0)

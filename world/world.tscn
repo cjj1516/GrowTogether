@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://du4j8i8ian83a" path="res://world/world.gd" id="1_tcf2h"]
 [ext_resource type="Script" uid="uid://r7kwpuujdfhn" path="res://world/camera.gd" id="2_4717r"]
 [ext_resource type="PackedScene" uid="uid://be64fexypk4tr" path="res://npcs/NPC.tscn" id="2_tcf2h"]
+[ext_resource type="Script" uid="uid://b1r7psnaet1b6" path="res://world/SpawnManager.gd" id="4_h5o24"]
 
 [sub_resource type="Environment" id="Environment_oracd"]
 background_mode = 1
@@ -23,9 +24,12 @@ transform = Transform3D(16.347387, 0, 0, 0, 1, 0, 0, 0, 16.735907, 0, -0.4257812
 use_collision = true
 size = Vector3(1, 0.1484375, 1)
 
-[node name="NPC" parent="." unique_id=1856237465 instance=ExtResource("2_tcf2h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.22344637, 0)
-move_speed = 1.0
-edge_padding = 10.0
-
 [node name="GUI" type="CanvasLayer" parent="." unique_id=2131960766]
+
+[node name="NPC" parent="." unique_id=1856237465 instance=ExtResource("2_tcf2h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8046875, 0)
+
+[node name="SpawnManager" type="Node3D" parent="." unique_id=630684527]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.0468616, 0)
+script = ExtResource("4_h5o24")
+npc_scene = ExtResource("2_tcf2h")

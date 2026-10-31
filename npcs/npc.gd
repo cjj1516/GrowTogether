@@ -15,9 +15,19 @@ enum NpcColor {ORANGE, PURPLE, GREEN, BLUE}
 @export var move_speed: float = 3.0
 @export var edge_padding: float = 1.0
 #this stops the little character from going to the direct edge^
+@export var gravity: float = 9.8
+
+
+@export_category("Squash and Stretch")
+@export var stretch_amount: float = 0.25
+@export var bounce_frequency: float = 16.0
+
+var walk_anim_time: float = 0.0
+var base_sprite_scale: Vector3 = Vector3.ONE
+
 
 @export_category("Bounds")
-@export var wander_bounds: Rect2 = Rect2(-10,-10, 20, 20)
+@export var wander_bounds: Rect2 = Rect2(-2,-2, 6, 6)
 
 @onready var sprite_3d: Sprite3D = $Sprite3D
 
@@ -31,13 +41,15 @@ var plant_node: Node3D = null
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	set_color()
-	
+	base_sprite_scale = sprite_3d.scale
 	pick_target()
 	pass 
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
+	
+	
 	match current_state:
 		State.WANDERING:
 			handle_wander()
@@ -46,10 +58,17 @@ func _physics_process(delta: float) -> void:
 		State.WANTPLANT:
 			handle_wantplant()
 		State.ATPLANT:
-			
+			velocity.x = 0.0
+			velocity.z = 0.0
 			pass
-	
+	if not is_on_floor():
+		velocity.y -= gravity * delta
+		current_state = State.IDLE
+	else:
+		
+		velocity.y = 0.0
 	move_and_slide()
+	squash_and_stretch(delta)
 
 func set_color() -> void:
 	#I <3 match statements
@@ -81,7 +100,6 @@ func pick_target() -> void:
 	var random_z = randf_range(wander_bounds.position.y + edge_padding, wander_bounds.position.y + wander_bounds.size.y - edge_padding)
 	target_pos = Vector3(random_x, global_position.y, random_z)
 
-
 func action_decision() -> void:
 	#50% chance to water, 25 to wander 25 to idle 
 	var availale_plant = get_plant()
@@ -98,26 +116,28 @@ func action_decision() -> void:
 			current_state = State.WANDERING
 			pick_target()
 
-
 func handle_wander() -> void:
 	#flat so we can just ignore height difference
 	var target_flat = Vector3(target_pos.x, global_position.y, target_pos.z)
 	var direction = global_position.direction_to(target_flat)
-	velocity = direction * move_speed
+	velocity.x = direction.x * move_speed
+	velocity.z = direction.z * move_speed
 	
-	if global_position.distance_to(target_pos) < 5.0:
-		velocity = Vector3.ZERO
+	var current_flat = Vector3(global_position.x, 0, global_position.z)
+	var target_flat_pos = Vector3(target_pos.x, 0, target_pos.z)
+	if current_flat.distance_to(target_flat_pos) < 0.2:
+		velocity.x = 0.0
+		velocity.z = 0.0
 		action_decision()
-
 
 func handle_idle(delta: float) -> void:
 	timer -= delta
-	velocity = Vector3.ZERO
+	velocity.x = 0.0
+	velocity.z = 0.0
 	if timer <= 0.0:
 		pick_target()
 		current_state = State.WANDERING
-
-
+		
 func handle_wantplant() -> void:
 	if not is_instance_valid(plant_node):
 		pick_target()
@@ -126,10 +146,16 @@ func handle_wantplant() -> void:
 	var plant_flat = Vector3(plant_node.global_position.x, global_position.y,plant_node.global_position.z)
 	target_pos = plant_flat
 	var direction = global_position.direction_to(target_pos)
-	velocity = direction * move_speed
+	velocity.x = direction.x * move_speed
+	velocity.z = direction.z * move_speed
 	
-	if global_position.distance_to(target_pos) < 1.0:
-		velocity = Vector3.ZERO
+	var current_flat = Vector3(global_position.x, 0, global_position.z)
+	var plant_flat_pos = Vector3(plant_node.global_position.x,0, plant_node.global_position.z)
+	
+	if current_flat.distance_to(plant_flat_pos) < 1.0:
+		velocity.x = 0.0
+		velocity.z = 0.0
+		
 		current_state = State.ATPLANT
 		plant_node.water_plant()
 		give_seeds()
@@ -137,19 +163,33 @@ func handle_wantplant() -> void:
 		var pause_timer = get_tree().create_timer(randf_range(2,3))
 		pause_timer.timeout.connect(done_interacting)
 
-
 func done_interacting() -> void:
 	plant_node = null
 	pick_target()
 	current_state = State.WANDERING
-
-
+	
 func give_seeds() -> void:
+	
 	var sprite = plant_node.get_node("Sprite") as Sprite3D
 	var texture_path = sprite.texture.resource_path
 	var file_name = texture_path.get_file().get_basename()
 	
 	var world_node = get_tree().current_scene
 	var seeds_to_give = randi_range(0, 2)
+	
 	world_node.add_plant_to_inventory(file_name, seeds_to_give)
 	world_node.attempt_to_select_what_to_plant(file_name)
+
+func squash_and_stretch(delta:float) -> void:
+	if velocity.length_squared() > 0.1 and current_state != State.IDLE:
+		walk_anim_time += delta * bounce_frequency
+		
+		#sine wave for stretching 
+		var stretch = sin(walk_anim_time) * stretch_amount
+		
+		sprite_3d.scale.y = base_sprite_scale.y * (1.0 + stretch)
+		sprite_3d.scale.x = base_sprite_scale.x * (1.0 - stretch * 0.5)
+		sprite_3d.scale.z = base_sprite_scale.x * (1.0 - stretch * 0.5)
+	else:
+		walk_anim_time = 0.0
+		sprite_3d.scale = sprite_3d.scale.lerp(base_sprite_scale, delta * 12.0)
