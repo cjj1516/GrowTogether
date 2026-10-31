@@ -4,6 +4,7 @@ class_name CameraRig
 @export_category("Panning & Following")
 @export var pan_sens: float = 15.0
 @export var follow_smooth_speed: float = 6.0
+@export var offset: float = -1.5
 
 @export_category("Zoom Settings")
 @export var normal_zoom: float = 15.0  
@@ -15,14 +16,15 @@ class_name CameraRig
 var focused_npc_index: int = -1
 var npcs: Array = []
 var target_camera_z: float = 15.0
-
+var base_height_y: float = 0.0
 
 func _ready() -> void:
 	if camera_3d:
 		target_camera_z = normal_zoom
 		camera_3d.position.z = normal_zoom
-	
+	base_height_y = global_position.y
 func _unhandled_input(event: InputEvent) -> void:
+	
 	if event.is_action_pressed("ui_right"):
 		cycle_npc(1)
 	elif event.is_action_pressed("ui_left"):
@@ -30,6 +32,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	
 	
 func cycle_npc(direction: int) -> void:
+	release_current_npc()
 	npcs = get_tree().get_nodes_in_group("npcs")
 	npcs = npcs.filter(func(n): return is_instance_valid(n))
 	
@@ -44,9 +47,9 @@ func cycle_npc(direction: int) -> void:
 		
 	var target_npc = npcs[focused_npc_index]
 	if is_instance_valid(target_npc):
-		target_npc.current_state = target_npc.State.IDLE
+		target_npc.current_state = target_npc.State.TRADING
 		target_npc.velocity = Vector3.ZERO
-		target_npc.timer = 4.0
+		
 		
 		
 		target_camera_z = focused_zoom
@@ -57,6 +60,7 @@ func _process(delta: float) -> void:
 	
 	var is_pressing_wasd = Input.is_key_pressed(KEY_W) or Input.is_key_pressed(KEY_S) or Input.is_key_pressed(KEY_A) or Input.is_key_pressed(KEY_D)
 	if is_pressing_wasd:
+		release_current_npc()
 		focused_npc_index = -1
 		target_camera_z = normal_zoom
 	
@@ -68,7 +72,7 @@ func _process(delta: float) -> void:
 	if focused_npc_index >= 0 and focused_npc_index < npcs.size():
 		var npc = npcs[focused_npc_index]
 		if is_instance_valid(npc):
-			var target_pos = Vector3(npc.global_position.x, global_position.y, npc.global_position.z)
+			var target_pos = Vector3(npc.global_position.x, base_height_y + offset, npc.global_position.z)
 			global_position = global_position.lerp(target_pos, follow_smooth_speed * delta)
 			return
 			
@@ -77,6 +81,7 @@ func _process(delta: float) -> void:
 
 	
 func handle_wasd_movement(delta: float) -> void:
+	global_position.y = base_height_y
 	var input_dir := Vector3.ZERO
 	
 	if Input.is_key_pressed(KEY_W):
@@ -98,3 +103,11 @@ func handle_wasd_movement(delta: float) -> void:
 		
 		var motion: Vector3 = (right * input_dir.x + forward * input_dir.z) * pan_sens * delta
 		global_position += motion
+		
+		
+
+func release_current_npc() -> void:
+	if focused_npc_index >= 0 and focused_npc_index < npcs.size():
+		var current_npc = npcs[focused_npc_index]
+		if is_instance_valid(current_npc) and current_npc.has_method("done_interacting"):
+			current_npc.done_interacting()

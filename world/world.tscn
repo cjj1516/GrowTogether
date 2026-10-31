@@ -33,8 +33,9 @@ npc_scene = ExtResource("2_tcf2h")
 
 [node name="CameraRig" type="Node3D" parent="." unique_id=685102962]
 script = ExtResource("4_mmdvd")
-normal_zoom = 10.0
-focused_zoom = 2.0
+offset = -1.0
+normal_zoom = 8.0
+focused_zoom = 1.0
 
 [node name="Camera3D" type="Camera3D" parent="CameraRig" unique_id=2050715352]
 transform = Transform3D(1, 0, 0, 0, 0.9244012, 0.3814215, 0, -0.3814215, 0.9244012, -2.3841858e-07, 1.7269819, 3.4151733)

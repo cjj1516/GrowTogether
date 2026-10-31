@@ -10,6 +10,13 @@ enum NpcColor {ORANGE, PURPLE, GREEN, BLUE}
 @export var texture_purple: Texture2D
 @export var texture_green: Texture2D
 @export var texture_blue: Texture2D
+@export var hand_texture: Texture2D
+
+@export_category("Hand Tint Colors ")
+@export var tint_orange: Color = Color("e78620ff")
+@export var tint_purple: Color = Color("a255beff")
+@export var tint_green: Color = Color("21e84eff")
+@export var tint_blue: Color = Color("3adaffff")
 
 @export_category("Movin' Settings")
 @export var move_speed: float = 3.0
@@ -30,8 +37,9 @@ var base_sprite_scale: Vector3 = Vector3.ONE
 @export var wander_bounds: Rect2 = Rect2(-2,-2, 6, 6)
 
 @onready var sprite_3d: Sprite3D = $Sprite3D
+@onready var hand_sprite_3d: Sprite3D = $Hand
 
-enum State {WANDERING, IDLE, WANTPLANT, ATPLANT}
+enum State {WANDERING, IDLE, WANTPLANT, ATPLANT, TRADING}
 var current_state: State = State.WANDERING
 
 
@@ -43,6 +51,7 @@ func _ready() -> void:
 	add_to_group("npcs")
 	set_color()
 	base_sprite_scale = sprite_3d.scale
+	hand_sprite_3d.visible = false
 	pick_target()
 	pass 
 
@@ -61,6 +70,8 @@ func _physics_process(delta: float) -> void:
 		State.ATPLANT:
 			velocity.x = 0.0
 			velocity.z = 0.0
+		State.TRADING:
+			handle_trading()
 			pass
 	if not is_on_floor():
 		velocity.y -= gravity * delta
@@ -76,12 +87,16 @@ func set_color() -> void:
 	match npc_color:
 		NpcColor.ORANGE:
 			sprite_3d.texture = texture_orange
+			hand_sprite_3d.modulate = tint_orange
 		NpcColor.GREEN:
 			sprite_3d.texture = texture_green
+			hand_sprite_3d.modulate = tint_green
 		NpcColor.PURPLE:
 			sprite_3d.texture = texture_purple
+			hand_sprite_3d.modulate = tint_purple
 		NpcColor.BLUE:
 			sprite_3d.texture = texture_blue
+			hand_sprite_3d.modulate = tint_blue
 
 
 
@@ -164,7 +179,16 @@ func handle_wantplant() -> void:
 		var pause_timer = get_tree().create_timer(randf_range(2,3))
 		pause_timer.timeout.connect(done_interacting)
 
+func handle_trading() -> void:
+	velocity.x = 0.0
+	velocity.z = 0.0
+	
+	hand_sprite_3d.visible = true
+
+
+
 func done_interacting() -> void:
+	hand_sprite_3d.visible= false
 	plant_node = null
 	pick_target()
 	current_state = State.WANDERING
