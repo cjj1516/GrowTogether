@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://r7kwpuujdfhn" path="res://world/camera.gd" id="2_4717r"]
 [ext_resource type="PackedScene" uid="uid://be64fexypk4tr" path="res://npcs/NPC.tscn" id="2_tcf2h"]
 [ext_resource type="Script" uid="uid://b1r7psnaet1b6" path="res://world/SpawnManager.gd" id="4_h5o24"]
+[ext_resource type="Script" uid="uid://dgtwrqsnjpoop" path="res://world/camera_rig.gd" id="4_mmdvd"]
 
 [sub_resource type="Environment" id="Environment_oracd"]
 background_mode = 1
@@ -15,10 +16,6 @@ script = ExtResource("1_tcf2h")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1556400846]
 environment = SubResource("Environment_oracd")
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=2050715352]
-transform = Transform3D(1, 0, 0, 0, 0.9244012, 0.3814215, 0, -0.3814215, 0.9244012, -2.3841858e-07, 1.7269819, 3.4151733)
-script = ExtResource("2_4717r")
-
 [node name="Floor" type="CSGBox3D" parent="." unique_id=1991369096]
 transform = Transform3D(16.347387, 0, 0, 0, 1, 0, 0, 0, 16.735907, 0, -0.42578125, 0)
 use_collision = true
@@ -27,9 +24,18 @@ size = Vector3(1, 0.1484375, 1)
 [node name="GUI" type="CanvasLayer" parent="." unique_id=2131960766]
 
 [node name="NPC" parent="." unique_id=1856237465 instance=ExtResource("2_tcf2h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8046875, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.229841, 0)
 
 [node name="SpawnManager" type="Node3D" parent="." unique_id=630684527]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.0468616, 0)
 script = ExtResource("4_h5o24")
 npc_scene = ExtResource("2_tcf2h")
+
+[node name="CameraRig" type="Node3D" parent="." unique_id=685102962]
+script = ExtResource("4_mmdvd")
+normal_zoom = 10.0
+focused_zoom = 2.0
+
+[node name="Camera3D" type="Camera3D" parent="CameraRig" unique_id=2050715352]
+transform = Transform3D(1, 0, 0, 0, 0.9244012, 0.3814215, 0, -0.3814215, 0.9244012, -2.3841858e-07, 1.7269819, 3.4151733)
+script = ExtResource("2_4717r")

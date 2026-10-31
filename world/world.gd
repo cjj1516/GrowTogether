@@ -10,7 +10,7 @@ var total_time: float = 0
 
 @onready var GUI: CanvasLayer = $GUI
 @onready var floor_node = $Floor
-@onready var camera_node = $Camera3D
+@onready var camera_node = $CameraRig/Camera3D
 var name_to_button: Dictionary[String, Button]
 var buttons: Array[Button]
 

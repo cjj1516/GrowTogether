@@ -40,6 +40,7 @@ var timer: float =0.0
 var plant_node: Node3D = null
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	add_to_group("npcs")
 	set_color()
 	base_sprite_scale = sprite_3d.scale
 	pick_target()
