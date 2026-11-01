@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ykyyo3i2hi1l"
-path.s3tc="res://.godot/imported/handOpen.png-c5a2e2823da35919bece093d110128b8.s3tc.ctex"
+uid="uid://cte8pefxjgpk2"
+path.s3tc="res://.godot/imported/orange_guy.png-a1e980160f5fbba90595cf11da236b28.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://npcs/Sprites/handOpen.png"
-dest_files=["res://.godot/imported/handOpen.png-c5a2e2823da35919bece093d110128b8.s3tc.ctex"]
+source_file="res://npcs/sprites/orange_guy.png"
+dest_files=["res://.godot/imported/orange_guy.png-a1e980160f5fbba90595cf11da236b28.s3tc.ctex"]
 
 [params]
 
