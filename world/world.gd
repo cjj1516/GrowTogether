@@ -8,6 +8,9 @@ var plant_list: Array[Plant]
 var last_second: int = 0
 var total_time: float = 0
 
+enum ToolMode {PLACING, WATERING}
+var current_tool_mode: ToolMode = ToolMode.PLACING;
+
 @onready var GUI: CanvasLayer = $GUI
 @onready var floor_node = $Floor
 @onready var camera_node = $CameraRig/Camera3D
@@ -66,10 +69,14 @@ func _process(delta: float) -> void:
 func _unhandled_input(event):
 	# Mouse in viewport coordinates.
 	if event is InputEventMouseButton and event.pressed:
-		if plant_inventory[currently_planting] > 0:
-			var floor_position = camera_node.screen_raycast(event.position)
-			if floor_position != null:
-				spawn_plant(floor_position, currently_planting)
+		match current_tool_mode:
+			ToolMode.PLACING:
+				if plant_inventory[currently_planting] > 0:
+					var floor_position = camera_node.screen_raycast(event.position)
+					if floor_position != null:
+						spawn_plant(floor_position, currently_planting)
+			ToolMode.WATERING:
+				return
 
 
 func spawn_plant(position: Vector3, name: String):
