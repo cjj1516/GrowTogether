@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://xivq3vi4slni"
-path="res://.godot/imported/purpleGuy.png-709c9ce703f8eefd2d884b42fb6f3da6.ctex"
+uid="uid://ccfj6c76tp8gs"
+path="res://.godot/imported/square.png-bbc0c1967c7c21f9778ae30a08a09489.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://npcs/Sprites/purpleGuy.png"
-dest_files=["res://.godot/imported/purpleGuy.png-709c9ce703f8eefd2d884b42fb6f3da6.ctex"]
+source_file="res://npcs/sprites/square.png"
+dest_files=["res://.godot/imported/square.png-bbc0c1967c7c21f9778ae30a08a09489.ctex"]
 
 [params]
 
