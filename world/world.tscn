@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://du4j8i8ian83a" path="res://world/world.gd" id="1_tcf2h"]
 [ext_resource type="Script" uid="uid://r7kwpuujdfhn" path="res://world/camera.gd" id="2_4717r"]
-[ext_resource type="PackedScene" uid="uid://b3blh0ciudd01" path="res://npcs/npc.tscn" id="4_fn3g3"]
 [ext_resource type="Texture2D" uid="uid://y53xjgjqrl8a" path="res://world/sprites/plot.png" id="2_fn3g3"]
+[ext_resource type="PackedScene" uid="uid://b3blh0ciudd01" path="res://npcs/NPC.tscn" id="4_fn3g3"]
 [ext_resource type="Script" uid="uid://b1r7psnaet1b6" path="res://world/spawn_manager.gd" id="4_h5o24"]
 [ext_resource type="Script" uid="uid://dgtwrqsnjpoop" path="res://world/camera_rig.gd" id="4_mmdvd"]
 
@@ -45,5 +45,6 @@ normal_zoom = 8.0
 focused_zoom = 1.0
 
 [node name="Camera3D" type="Camera3D" parent="CameraRig" unique_id=2050715352]
-transform = Transform3D(1, 0, 0, 0, 0.9244012, 0.3814215, 0, -0.3814215, 0.9244012, -2.3841858e-07, 1.7269819, 3.4151733)
+transform = Transform3D(1, 0, 0, 0, 0.6890316, 0.7247313, 0, -0.7247313, 0.6890316, -2.3841858e-07, 3.9343166, 9.264206)
+fov = 58.4
 script = ExtResource("2_4717r")

@@ -80,6 +80,10 @@ func _unhandled_input(event):
 	if event is InputEventMouseButton and event.pressed:
 		if plant_inventory[currently_planting] > 0:
 			var floor_position = camera_node.screen_raycast(event.position)
+			
+			if floor_position == null:
+				return
+			
 			var grid_position = world_pos_to_grid_pos(floor_position)
 			
 			if not(grid_availability.has(grid_position)) or not(grid_availability[grid_position]):
