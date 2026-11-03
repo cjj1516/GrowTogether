@@ -18,6 +18,7 @@ var warning_list: Array[Warning]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	add_warnings()
 	thirst_timer = 0
 	pass
 
@@ -28,7 +29,7 @@ func _process(delta: float) -> void:
 		return
 	thirst_timer += delta
 	if (thirst_timer >= plant_resource.thirst_limit):
-		add_warning()
+		add_warnings()
 	else:
 		# Just for now, remove all warnings if the plant doesn't need water
 		remove_warnings()
@@ -54,12 +55,13 @@ func water_plant(timer_reduction: float = 0):
 	thirst_timer = 0 if timer_reduction == 0 else thirst_timer - min(thirst_timer, timer_reduction)
 	return
 
-func add_warning():
+func add_warnings():
 	var warning_scene = load("res://plants/warnings/warning.tscn")
-	var new_warning = warning_scene.instantiate()
-	new_warning.position = self.position;
-	warning_list.push_back(new_warning)
-	add_child(new_warning)
+	var water_warning = warning_scene.instantiate()
+	water_warning.position = self.position;
+	water_warning.set_warning_type("water_warning")
+	warning_list.push_back(water_warning)
+	self.add_child(water_warning)
 
 func remove_warnings():
 	for warning in warning_list:
