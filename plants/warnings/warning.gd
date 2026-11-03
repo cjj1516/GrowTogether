@@ -1,7 +1,7 @@
 extends Node3D
 class_name Warning
 
-@export var warning_resource = null;
+@export var warning_resource = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
