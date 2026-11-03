@@ -29,10 +29,15 @@ func _process(delta: float) -> void:
 		return
 	thirst_timer += delta
 	if (thirst_timer >= plant_resource.thirst_limit):
-		pass # Warnings will just be made visible now; not added or removed
+		set_warnings_visibility("water_warning", true)
 	else:
-		pass # Likewise, warnings will be made invisible when their conditions are no longer fulfilled
+		set_warnings_visibility("water_warning", false)
 	pass
+
+func set_warnings_visibility(name: String, is_visible: bool):
+	for warning in warning_list:
+		if warning.warning_name == name:
+			warning.visible = is_visible
 
 # you have to call this function when you make a new plant, name is the same as
 # the plant's resource
@@ -57,7 +62,6 @@ func water_plant(timer_reduction: float = 0):
 func add_warnings():
 	var warning_scene = load("res://plants/warnings/warning.tscn")
 	var water_warning = warning_scene.instantiate()
-	water_warning.position = self.position;
 	water_warning.set_warning_type("water_warning")
 	warning_list.push_back(water_warning)
 	self.add_child(water_warning)

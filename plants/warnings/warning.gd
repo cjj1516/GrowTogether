@@ -2,12 +2,12 @@ extends Node3D
 class_name Warning
 
 @export var warning_resource = null
+var warning_name = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	print("Created a warning!") #DEBUG
 	pass # Replace with function body.
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -26,4 +26,5 @@ func set_warning_type(name: String):
 	
 	warning_resource.prepare_resource(self)
 	$Sprite.texture = warning_resource.texture
+	warning_name = name
 	pass

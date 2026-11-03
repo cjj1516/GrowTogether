@@ -3,7 +3,8 @@
 [ext_resource type="Script" uid="uid://dio5b7r4172ax" path="res://plants/warnings/warning.gd" id="1_gb436"]
 
 [node name="Warning" type="Node3D" unique_id=1679088568]
+visible = false
 script = ExtResource("1_gb436")
 
-[node name="Sprite" type="Sprite3D" parent="." unique_id=757046764]
-transform = Transform3D(0.125, 0, 0, 0, 0.125, 0, 0, 0, 0, 0, 0, 0)
+[node name="Sprite" type="Sprite3D" parent="." unique_id=2108915731]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 1.25, 0)
