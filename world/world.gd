@@ -18,6 +18,7 @@ var currently_planting: String = "green_plant"
 
 # side of a grid square in world-units
 var grid_size: float = 1;
+var grid_availability: Dictionary[Vector2i, bool]
 
 
 # Called when the node enters the scene tree for the first time.
@@ -40,6 +41,10 @@ func _ready() -> void:
 		add_child(button)
 		
 		name_to_button[plant_name] = button
+	
+	for x in range(-7, 8):
+		for y in range(-7, 8):
+			grid_availability[Vector2i(x, y)] = true;
 	pass
 
 
@@ -72,6 +77,13 @@ func _unhandled_input(event):
 	if event is InputEventMouseButton and event.pressed:
 		if plant_inventory[currently_planting] > 0:
 			var floor_position = camera_node.screen_raycast(event.position)
+			var grid_position = world_pos_to_grid_pos(floor_position)
+			
+			if not(grid_availability.has(grid_position)) or not(grid_availability[grid_position]):
+				return
+			
+			grid_availability[grid_position] = false
+			
 			floor_position = snap_world_pos_to_grid(floor_position)
 			if floor_position != null:
 				spawn_plant(floor_position, currently_planting)
