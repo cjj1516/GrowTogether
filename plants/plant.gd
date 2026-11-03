@@ -1,4 +1,4 @@
-extends Node3D
+extends Area3D
 class_name Plant
 
 # Godot's custom resources seem very helpful in terms of defining multiple
@@ -57,6 +57,7 @@ func water_plant(timer_reduction: float = 0):
 func add_warning():
 	var warning_scene = load("res://plants/warnings/warning.tscn")
 	var new_warning = warning_scene.instantiate()
+	new_warning.position = self.position;
 	warning_list.push_back(new_warning)
 	add_child(new_warning)
 
