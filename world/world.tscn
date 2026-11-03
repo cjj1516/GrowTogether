@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://du4j8i8ian83a" path="res://world/world.gd" id="1_tcf2h"]
 [ext_resource type="Script" uid="uid://r7kwpuujdfhn" path="res://world/camera.gd" id="2_4717r"]
-[ext_resource type="PackedScene" uid="uid://bedefccr0y3s7" path="res://npcs/npc.tscn" id="4_fn3g3"]
+[ext_resource type="PackedScene" uid="uid://bedefccr0y3s7" path="res://npcs/NPC.tscn" id="4_fn3g3"]
 [ext_resource type="Script" uid="uid://b1r7psnaet1b6" path="res://world/spawn_manager.gd" id="4_h5o24"]
 [ext_resource type="Script" uid="uid://dgtwrqsnjpoop" path="res://world/camera_rig.gd" id="4_mmdvd"]
 
