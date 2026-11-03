@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bedefccr0y3s7"]
+[gd_scene format=3 uid="uid://cyyxh6gs40ehp"]
 
 [ext_resource type="Script" uid="uid://c5qe5ojwdxl41" path="res://npcs/npc.gd" id="1_owtk7"]
 [ext_resource type="Texture2D" uid="uid://cte8pefxjgpk2" path="res://npcs/sprites/orange_guy.png" id="2_kol2k"]

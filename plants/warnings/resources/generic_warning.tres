@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="WarningResource" format=3 uid="uid://ceuck55lk2fja"]
+
+[ext_resource type="Texture2D" uid="uid://d07bvybc2jcbo" path="res://plants/warnings/images/generic_warning.png" id="1_7t2uy"]
+[ext_resource type="Script" uid="uid://bnhfyyjn2cdrr" path="res://plants/warnings/resources/warning_resource.gd" id="1_ilsg8"]
+
+[resource]
+script = ExtResource("1_ilsg8")
+compressed_texture = ExtResource("1_7t2uy")
+metadata/_custom_type_script = "uid://bnhfyyjn2cdrr"
