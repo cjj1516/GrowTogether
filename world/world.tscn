@@ -3,12 +3,18 @@
 [ext_resource type="Script" uid="uid://du4j8i8ian83a" path="res://world/world.gd" id="1_tcf2h"]
 [ext_resource type="Script" uid="uid://r7kwpuujdfhn" path="res://world/camera.gd" id="2_4717r"]
 [ext_resource type="PackedScene" uid="uid://cyyxh6gs40ehp" path="res://npcs/npc.tscn" id="4_fn3g3"]
+[ext_resource type="Texture2D" uid="uid://y53xjgjqrl8a" path="res://world/sprites/plot.png" id="2_fn3g3"]
 [ext_resource type="Script" uid="uid://b1r7psnaet1b6" path="res://world/spawn_manager.gd" id="4_h5o24"]
 [ext_resource type="Script" uid="uid://dgtwrqsnjpoop" path="res://world/camera_rig.gd" id="4_mmdvd"]
 
 [sub_resource type="Environment" id="Environment_oracd"]
 background_mode = 1
 background_color = Color(0.6581315, 0.7714466, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sc4t8"]
+albedo_texture = ExtResource("2_fn3g3")
+uv1_scale = Vector3(15, 15, 15)
+uv1_offset = Vector3(0, 0.1, 0)
 
 [node name="World" type="Node3D" unique_id=1874885327]
 script = ExtResource("1_tcf2h")
@@ -17,9 +23,10 @@ script = ExtResource("1_tcf2h")
 environment = SubResource("Environment_oracd")
 
 [node name="Floor" type="CSGBox3D" parent="." unique_id=1991369096]
-transform = Transform3D(16.347387, 0, 0, 0, 1, 0, 0, 0, 16.735907, 0, -0.42578125, 0)
+transform = Transform3D(-4.371139e-08, 0, 1.024, 0, 0.061, 0, -1, 0, -4.4760462e-08, 0, -0.42578125, 0)
 use_collision = true
-size = Vector3(1, 0.1484375, 1)
+size = Vector3(15, 0.148, 15)
+material = SubResource("StandardMaterial3D_sc4t8")
 
 [node name="GUI" type="CanvasLayer" parent="." unique_id=2131960766]
 
