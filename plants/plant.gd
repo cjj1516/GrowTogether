@@ -29,10 +29,9 @@ func _process(delta: float) -> void:
 		return
 	thirst_timer += delta
 	if (thirst_timer >= plant_resource.thirst_limit):
-		add_warnings()
+		pass # Warnings will just be made visible now; not added or removed
 	else:
-		# Just for now, remove all warnings if the plant doesn't need water
-		remove_warnings()
+		pass # Likewise, warnings will be made invisible when their conditions are no longer fulfilled
 	pass
 
 # you have to call this function when you make a new plant, name is the same as
