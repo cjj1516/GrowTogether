@@ -8,9 +8,6 @@ var plant_list: Array[Plant]
 var last_second: int = 0
 var total_time: float = 0
 
-enum ToolMode {PLACING, WATERING}
-var current_tool_mode: ToolMode = ToolMode.PLACING;
-
 @onready var GUI: CanvasLayer = $GUI
 @onready var floor_node = $Floor
 @onready var camera_node = $CameraRig/Camera3D
@@ -77,7 +74,8 @@ func _process(delta: float) -> void:
 
 func _unhandled_input(event):
 	# Mouse in viewport coordinates.
-	if event is InputEventMouseButton and event.pressed:
+	if (GameState.current_tool_mode == Enums.ToolMode.PLACING
+	and event is InputEventMouseButton and event.pressed):
 		if plant_inventory[currently_planting] > 0:
 			var floor_position = camera_node.screen_raycast(event.position)
 			

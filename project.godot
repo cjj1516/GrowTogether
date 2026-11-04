@@ -15,6 +15,11 @@ run/main_scene="uid://tuc1i26umpgd"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://intake/icon.svg"
 
+[autoload]
+
+Enums="*uid://u3rrrj8vj748"
+GameState="*uid://c3bxy0ykub22f"
+
 [display]
 
 window/stretch/mode="canvas_items"
