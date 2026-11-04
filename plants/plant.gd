@@ -34,16 +34,22 @@ func _process(delta: float) -> void:
 		set_warnings_visibility("water_warning", false)
 	pass
 
-func set_warnings_visibility(name: String, is_visible: bool):
+func _input_event(_cam: Camera3D, event: InputEvent, _event_pos: Vector3, _normal: Vector3, _index: int):
+	if (GameState.current_tool_mode == Enums.ToolMode.WATERING
+	and event is InputEventMouseButton and event.pressed):
+		water_plant()
+		print("Just watered a plant!")
+
+func set_warnings_visibility(warning_name: String, visibility: bool):
 	for warning in warning_list:
-		if warning.warning_name == name:
-			warning.visible = is_visible
+		if warning.warning_name == warning_name:
+			warning.visible = visibility
 
 # you have to call this function when you make a new plant, name is the same as
 # the plant's resource
-func set_plant_type(name: String):
+func set_plant_type(plant_resource_name: String):
 	var filepath = ("res://plants/resources/{name}.tres"
-		.format({"name": name}))
+		.format({"name": plant_resource_name}))
 	plant_resource = load(filepath)
 	
 	if plant_resource == null:
