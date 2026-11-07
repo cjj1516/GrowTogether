@@ -24,6 +24,9 @@ var grid_availability: Dictionary[Vector2i, bool]
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var colors = ["red", "yellow", "green", "blue"]
+	
+	
+	
 	for i in range(len(colors)):
 		var color = colors[i]
 		var button = Button.new()

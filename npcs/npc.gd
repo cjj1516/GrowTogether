@@ -203,7 +203,6 @@ func give_seeds() -> void:
 	var seeds_to_give = randi_range(0, 2)
 	
 	world_node.add_plant_to_inventory(file_name, seeds_to_give)
-	world_node.attempt_to_select_what_to_plant(file_name)
 
 func squash_and_stretch(delta:float) -> void:
 	if velocity.length_squared() > 0.1 and current_state != State.IDLE:
