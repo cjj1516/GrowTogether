@@ -25,6 +25,12 @@ GameState="*uid://c3bxy0ykub22f"
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
+[importer_defaults]
+
+scene={
+&"materials/extract": 1
+}
+
 [physics]
 
 3d/physics_engine="Jolt Physics"

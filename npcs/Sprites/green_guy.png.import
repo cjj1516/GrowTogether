@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://yk7qjgai6vri"
-path="res://.godot/imported/green_guy.png-b1b0d3b4aa1b600d5da34bed73431c87.ctex"
+path="res://.godot/imported/green_guy.png-2afb39176d3983034af07e9cdcb7f3b5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://npcs/sprites/green_guy.png"
-dest_files=["res://.godot/imported/green_guy.png-b1b0d3b4aa1b600d5da34bed73431c87.ctex"]
+source_file="res://npcs/Sprites/green_guy.png"
+dest_files=["res://.godot/imported/green_guy.png-2afb39176d3983034af07e9cdcb7f3b5.ctex"]
 
 [params]
 
