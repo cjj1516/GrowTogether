@@ -33,10 +33,16 @@ material = SubResource("StandardMaterial3D_sc4t8")
 [node name="NPC" parent="." unique_id=1856237465 instance=ExtResource("4_fn3g3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.229841, 0)
 
+[node name="NPC2" parent="." unique_id=794378602 instance=ExtResource("4_fn3g3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0090587, 0.229841, 0.8951905)
+npc_color = 2
+
 [node name="SpawnManager" type="Node3D" parent="." unique_id=630684527]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.0468616, 0)
 script = ExtResource("4_h5o24")
 npc_scene = ExtResource("4_fn3g3")
+spawn_interval_min = 90.0
+spawn_interval_max = 150.0
 
 [node name="CameraRig" type="Node3D" parent="." unique_id=685102962]
 script = ExtResource("4_mmdvd")
