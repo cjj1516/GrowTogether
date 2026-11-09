@@ -149,7 +149,7 @@ func get_available_npcs() -> Array[Npc]:
 func pick_target() -> void:
 	var nearby_npcs = get_available_npcs()
 	
-	if not nearby_npcs.is_empty() and randf() < 0.75:
+	if not nearby_npcs.is_empty() and randf() < 0.5:
 		target_npc = nearby_npcs.pick_random()
 		target_pos = target_npc.global_position
 	else:

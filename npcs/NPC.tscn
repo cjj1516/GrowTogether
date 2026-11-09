@@ -46,12 +46,12 @@ texture = ExtResource("6_kol2k")
 
 [node name="DialogueBubble" type="Sprite3D" parent="." unique_id=1570734181]
 transform = Transform3D(0.30516234, 0, 0, 0, 0.31335944, 0, 0, 0, 0.252262, 0, 0.778484, 0)
-billboard = 2
+billboard = 1
 texture = ExtResource("10_1ox57")
 
 [node name="SymbolSprite" type="Sprite3D" parent="DialogueBubble" unique_id=1078842355]
 transform = Transform3D(1.7880365, 0, 0, 0, 1.4121081, 0, 0, 0, 0.9999999, 0, 0, 0)
-billboard = 2
+billboard = 1
 render_priority = 1
 
 [node name="InteractionArea" type="Area3D" parent="." unique_id=1554658357]
