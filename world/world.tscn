@@ -40,7 +40,7 @@ npc_scene = ExtResource("4_fn3g3")
 
 [node name="CameraRig" type="Node3D" parent="." unique_id=685102962]
 script = ExtResource("4_mmdvd")
-offset = -1.0
+offset = -2.5
 normal_zoom = 8.0
 focused_zoom = 1.0
 

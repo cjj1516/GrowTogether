@@ -1,15 +1,23 @@
 [gd_scene format=3 uid="uid://b3blh0ciudd01"]
 
 [ext_resource type="Script" uid="uid://c5qe5ojwdxl41" path="res://npcs/npc.gd" id="1_owtk7"]
-[ext_resource type="Texture2D" uid="uid://cte8pefxjgpk2" path="res://npcs/sprites/orange_guy.png" id="2_kol2k"]
-[ext_resource type="Texture2D" uid="uid://xivq3vi4slni" path="res://npcs/sprites/purple_guy.png" id="3_pnbr5"]
-[ext_resource type="Texture2D" uid="uid://yk7qjgai6vri" path="res://npcs/sprites/green_guy.png" id="4_3tsbl"]
-[ext_resource type="Texture2D" uid="uid://cbt0aa66jp31x" path="res://npcs/sprites/blue_guy.png" id="5_qposl"]
-[ext_resource type="Texture2D" uid="uid://ykyyo3i2hi1l" path="res://npcs/sprites/hand_open.png" id="6_kol2k"]
+[ext_resource type="Texture2D" uid="uid://cte8pefxjgpk2" path="res://npcs/Sprites/orange_guy.png" id="2_kol2k"]
+[ext_resource type="Texture2D" uid="uid://xivq3vi4slni" path="res://npcs/Sprites/purple_guy.png" id="3_pnbr5"]
+[ext_resource type="Texture2D" uid="uid://yk7qjgai6vri" path="res://npcs/Sprites/green_guy.png" id="4_3tsbl"]
+[ext_resource type="Texture2D" uid="uid://cbt0aa66jp31x" path="res://npcs/Sprites/blue_guy.png" id="5_qposl"]
+[ext_resource type="Texture2D" uid="uid://ykyyo3i2hi1l" path="res://npcs/Sprites/hand_open.png" id="6_kol2k"]
+[ext_resource type="Texture2D" uid="uid://ddakm561mnep8" path="res://npcs/Dialogue/buge.png" id="6_qposl"]
+[ext_resource type="Texture2D" uid="uid://cwdwt6vgt4e2p" path="res://npcs/Dialogue/hart.png" id="7_1ox57"]
+[ext_resource type="Texture2D" uid="uid://dd7sqdkki1ep4" path="res://npcs/Dialogue/music.png" id="8_b4p28"]
+[ext_resource type="Texture2D" uid="uid://colu0ya3ncyxa" path="res://npcs/Dialogue/text.png" id="10_1ox57"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_gp5m4"]
 height = 0.9501953
 radius = 0.42382813
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_oracd"]
+height = 0.8664551
+radius = 0.8652344
 
 [node name="NPC" type="CharacterBody3D" unique_id=1856237465]
 collision_layer = 2
@@ -19,6 +27,7 @@ texture_purple = ExtResource("3_pnbr5")
 texture_green = ExtResource("4_3tsbl")
 texture_blue = ExtResource("5_qposl")
 edge_padding = 10.0
+symbol_list = Array[Texture2D]([ExtResource("6_qposl"), ExtResource("7_1ox57"), ExtResource("8_b4p28")])
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1773385299]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.021972656, 0)
@@ -34,3 +43,19 @@ transform = Transform3D(0.015733516, 0, 0, 0, 0.015733516, 0, 0, 0, 0.015733516,
 billboard = 1
 render_priority = 1
 texture = ExtResource("6_kol2k")
+
+[node name="DialogueBubble" type="Sprite3D" parent="." unique_id=1570734181]
+transform = Transform3D(0.30516234, 0, 0, 0, 0.31335944, 0, 0, 0, 0.252262, 0, 0.778484, 0)
+billboard = 2
+texture = ExtResource("10_1ox57")
+
+[node name="SymbolSprite" type="Sprite3D" parent="DialogueBubble" unique_id=1078842355]
+transform = Transform3D(1.7880365, 0, 0, 0, 1.4121081, 0, 0, 0, 0.9999999, 0, 0, 0)
+billboard = 2
+render_priority = 1
+
+[node name="InteractionArea" type="Area3D" parent="." unique_id=1554658357]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionArea" unique_id=1658866766]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.012817383, 0)
+shape = SubResource("CylinderShape3D_oracd")
