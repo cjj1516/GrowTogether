@@ -1,0 +1,5 @@
+# lines beginning with # are skipped
+# empty lines are also skipped
+# every other line is like mad libs. it'll fill in the space with a word type
+
+I love to INTRANSITIVE_VERB

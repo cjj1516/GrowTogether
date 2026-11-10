@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://k1f3iyce152j"]
+
+[ext_resource type="Script" uid="uid://d4a2glll1ocp0" path="res://npcs/sentence_forming/sentence.gd" id="1_yssuf"]
+
+[node name="SentenceTest" type="Node2D" unique_id=268334099]
+script = ExtResource("1_yssuf")
