@@ -9,7 +9,10 @@
 [ext_resource type="Texture2D" uid="uid://ddakm561mnep8" path="res://npcs/Dialogue/buge.png" id="6_qposl"]
 [ext_resource type="Texture2D" uid="uid://cwdwt6vgt4e2p" path="res://npcs/Dialogue/hart.png" id="7_1ox57"]
 [ext_resource type="Texture2D" uid="uid://dd7sqdkki1ep4" path="res://npcs/Dialogue/music.png" id="8_b4p28"]
+[ext_resource type="Texture2D" uid="uid://tgd2n0wtt8w2" path="res://npcs/Dialogue/alert_ic.png" id="9_j1qyq"]
 [ext_resource type="Texture2D" uid="uid://colu0ya3ncyxa" path="res://npcs/Dialogue/text.png" id="10_1ox57"]
+[ext_resource type="Texture2D" uid="uid://diiqoivgsufsb" path="res://npcs/Dialogue/happy_ic.png" id="10_wsbxu"]
+[ext_resource type="Texture2D" uid="uid://df3garqiqkmdk" path="res://npcs/Dialogue/unhappy_ic.png" id="11_rg74d"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_gp5m4"]
 height = 0.9501953
@@ -27,7 +30,7 @@ texture_purple = ExtResource("3_pnbr5")
 texture_green = ExtResource("4_3tsbl")
 texture_blue = ExtResource("5_qposl")
 edge_padding = 10.0
-symbol_list = Array[Texture2D]([ExtResource("6_qposl"), ExtResource("7_1ox57"), ExtResource("8_b4p28")])
+symbol_list = Array[Texture2D]([ExtResource("6_qposl"), ExtResource("7_1ox57"), ExtResource("8_b4p28"), ExtResource("9_j1qyq"), ExtResource("10_wsbxu"), ExtResource("11_rg74d")])
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1773385299]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.021972656, 0)
