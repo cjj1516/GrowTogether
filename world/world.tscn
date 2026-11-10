@@ -8,22 +8,21 @@
 [ext_resource type="Script" uid="uid://b1r7psnaet1b6" path="res://world/spawn_manager.gd" id="4_h5o24"]
 [ext_resource type="Script" uid="uid://dgtwrqsnjpoop" path="res://world/camera_rig.gd" id="4_mmdvd"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ai45w"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sc4t8"]
 shader = ExtResource("2_sc4t8")
 shader_parameter/zoom = 1.0
 shader_parameter/pan = Vector2(0, 0)
 shader_parameter/rotation = 0.0
 shader_parameter/tint = Color(1, 1, 1, 1)
-shader_parameter/speed = 1.0
 shader_parameter/cellSize = 2.0
 
-[sub_resource type="Sky" id="Sky_c0oc3"]
-sky_material = SubResource("ShaderMaterial_ai45w")
+[sub_resource type="Sky" id="Sky_sc4t8"]
+sky_material = SubResource("ShaderMaterial_sc4t8")
 
 [sub_resource type="Environment" id="Environment_oracd"]
 background_mode = 2
 background_color = Color(0.6581315, 0.7714466, 1, 1)
-sky = SubResource("Sky_c0oc3")
+sky = SubResource("Sky_sc4t8")
 ambient_light_source = 3
 ambient_light_color = Color(1, 1, 1, 1)
 

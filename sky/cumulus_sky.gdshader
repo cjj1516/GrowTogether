@@ -7,20 +7,17 @@ uniform float rotation = 0.0;
 group_uniforms Style;
 uniform vec4 tint : source_color = vec4(1.0);
 
-uniform float speed = 1.0;
-
 uniform float cellSize = 2.0;
 
-#define uTime (TIME * speed)
 #define uResolution vec2(640.0, 360.0)
 
-#define time uTime
+#define time 0.0
 const float noiseScale = 4.0;
 #define screenSize vec2(640.0, 360.0)
 #define sampleOffset vec2(0.0)
 
-#define morphPhase (uTime*0.05)
-#define spinPhase (uTime*0.0)
+#define morphPhase 0.0
+#define spinPhase 0.0
 const float orbitRadius = 0.6;
 #define scrollSpeed vec2(0.25, 0.25)
 const vec2 loopD = vec2(0.0, 0.0);
