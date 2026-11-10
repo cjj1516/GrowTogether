@@ -3,13 +3,29 @@
 [ext_resource type="Script" uid="uid://du4j8i8ian83a" path="res://world/world.gd" id="1_tcf2h"]
 [ext_resource type="Script" uid="uid://r7kwpuujdfhn" path="res://world/camera.gd" id="2_4717r"]
 [ext_resource type="Texture2D" uid="uid://y53xjgjqrl8a" path="res://world/sprites/plot.png" id="2_fn3g3"]
+[ext_resource type="Shader" uid="uid://ur0tyk6l2m51" path="res://sky/cumulus_sky.gdshader" id="2_sc4t8"]
 [ext_resource type="PackedScene" uid="uid://b3blh0ciudd01" path="res://npcs/NPC.tscn" id="4_fn3g3"]
 [ext_resource type="Script" uid="uid://b1r7psnaet1b6" path="res://world/spawn_manager.gd" id="4_h5o24"]
 [ext_resource type="Script" uid="uid://dgtwrqsnjpoop" path="res://world/camera_rig.gd" id="4_mmdvd"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ai45w"]
+shader = ExtResource("2_sc4t8")
+shader_parameter/zoom = 1.0
+shader_parameter/pan = Vector2(0, 0)
+shader_parameter/rotation = 0.0
+shader_parameter/tint = Color(1, 1, 1, 1)
+shader_parameter/speed = 1.0
+shader_parameter/cellSize = 2.0
+
+[sub_resource type="Sky" id="Sky_c0oc3"]
+sky_material = SubResource("ShaderMaterial_ai45w")
+
 [sub_resource type="Environment" id="Environment_oracd"]
-background_mode = 1
+background_mode = 2
 background_color = Color(0.6581315, 0.7714466, 1, 1)
+sky = SubResource("Sky_c0oc3")
+ambient_light_source = 3
+ambient_light_color = Color(1, 1, 1, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sc4t8"]
 albedo_texture = ExtResource("2_fn3g3")
