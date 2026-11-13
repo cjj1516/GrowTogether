@@ -4,13 +4,28 @@
 [ext_resource type="Script" uid="uid://r7kwpuujdfhn" path="res://world/camera.gd" id="2_4717r"]
 [ext_resource type="Texture2D" uid="uid://y53xjgjqrl8a" path="res://world/sprites/plot.png" id="2_fn3g3"]
 [ext_resource type="PackedScene" uid="uid://bfe0e5hikxhjp" path="res://gui/shed_ui.tscn" id="3_sc4t8"]
+[ext_resource type="Shader" uid="uid://ur0tyk6l2m51" path="res://sky/cumulus_sky.gdshader" id="2_sc4t8"]
 [ext_resource type="PackedScene" uid="uid://b3blh0ciudd01" path="res://npcs/NPC.tscn" id="4_fn3g3"]
 [ext_resource type="Script" uid="uid://b1r7psnaet1b6" path="res://world/spawn_manager.gd" id="4_h5o24"]
 [ext_resource type="Script" uid="uid://dgtwrqsnjpoop" path="res://world/camera_rig.gd" id="4_mmdvd"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sc4t8"]
+shader = ExtResource("2_sc4t8")
+shader_parameter/zoom = 1.0
+shader_parameter/pan = Vector2(0, 0)
+shader_parameter/rotation = 0.0
+shader_parameter/tint = Color(1, 1, 1, 1)
+shader_parameter/cellSize = 2.0
+
+[sub_resource type="Sky" id="Sky_sc4t8"]
+sky_material = SubResource("ShaderMaterial_sc4t8")
+
 [sub_resource type="Environment" id="Environment_oracd"]
-background_mode = 1
+background_mode = 2
 background_color = Color(0.6581315, 0.7714466, 1, 1)
+sky = SubResource("Sky_sc4t8")
+ambient_light_source = 3
+ambient_light_color = Color(1, 1, 1, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sc4t8"]
 albedo_texture = ExtResource("2_fn3g3")
@@ -34,14 +49,20 @@ material = SubResource("StandardMaterial3D_sc4t8")
 [node name="NPC" parent="." unique_id=1856237465 instance=ExtResource("4_fn3g3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.229841, 0)
 
+[node name="NPC2" parent="." unique_id=794378602 instance=ExtResource("4_fn3g3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0090587, 0.229841, 0.8951905)
+npc_color = 2
+
 [node name="SpawnManager" type="Node3D" parent="." unique_id=630684527]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.0468616, 0)
 script = ExtResource("4_h5o24")
 npc_scene = ExtResource("4_fn3g3")
+spawn_interval_min = 90.0
+spawn_interval_max = 150.0
 
 [node name="CameraRig" type="Node3D" parent="." unique_id=685102962]
 script = ExtResource("4_mmdvd")
-offset = -1.0
+offset = -2.5
 normal_zoom = 8.0
 focused_zoom = 1.0
 
