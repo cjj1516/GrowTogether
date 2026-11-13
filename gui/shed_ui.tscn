@@ -1,15 +1,18 @@
 [gd_scene format=3 uid="uid://bfe0e5hikxhjp"]
 
+[ext_resource type="Script" uid="uid://plmcmx2aiuw7" path="res://gui/shed_ui.gd" id="1_7xl6w"]
 [ext_resource type="Texture2D" uid="uid://crc200hip283x" path="res://gui/sprites/shed.png" id="1_pxcgb"]
-[ext_resource type="Texture2D" uid="uid://dp8ejlhxroffi" path="res://gui/sprites/shed_box.png" id="2_hkc6v"]
+[ext_resource type="PackedScene" uid="uid://c27owif4po4d" path="res://gui/components/crate_button.tscn" id="3_7xl6w"]
 
 [node name="ShedUi" type="Control" unique_id=1188627741]
 layout_mode = 3
-anchors_preset = 15
+anchors_preset = 11
+anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-grow_horizontal = 2
+grow_horizontal = 0
 grow_vertical = 2
+script = ExtResource("1_7xl6w")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=2090631144]
 layout_mode = 1
@@ -17,6 +20,7 @@ anchors_preset = 11
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -431.04593
 grow_horizontal = 0
 grow_vertical = 2
 
@@ -56,125 +60,53 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="Slot0" type="Button" parent="MarginContainer/ShedTexture/MarginContainer/VBoxContainer/Row0" unique_id=1362183245]
-custom_minimum_size = Vector2(80, 80)
-custom_maximum_size = Vector2(80, 80)
+[node name="Slot0" parent="MarginContainer/ShedTexture/MarginContainer/VBoxContainer/Row0" unique_id=1365712347 instance=ExtResource("3_7xl6w")]
 layout_mode = 2
-icon = ExtResource("2_hkc6v")
-flat = true
-icon_alignment = 1
-expand_icon = true
 
-[node name="Slot1" type="Button" parent="MarginContainer/ShedTexture/MarginContainer/VBoxContainer/Row0" unique_id=1063186663]
-custom_minimum_size = Vector2(80, 80)
-custom_maximum_size = Vector2(80, 80)
+[node name="Slot1" parent="MarginContainer/ShedTexture/MarginContainer/VBoxContainer/Row0" unique_id=1830351360 instance=ExtResource("3_7xl6w")]
 layout_mode = 2
-icon = ExtResource("2_hkc6v")
-flat = true
-icon_alignment = 1
-expand_icon = true
 
-[node name="Slot2" type="Button" parent="MarginContainer/ShedTexture/MarginContainer/VBoxContainer/Row0" unique_id=441854544]
-custom_minimum_size = Vector2(80, 80)
-custom_maximum_size = Vector2(80, 80)
+[node name="Slot2" parent="MarginContainer/ShedTexture/MarginContainer/VBoxContainer/Row0" unique_id=1720427686 instance=ExtResource("3_7xl6w")]
 layout_mode = 2
-icon = ExtResource("2_hkc6v")
-flat = true
-icon_alignment = 1
-expand_icon = true
 
 [node name="Row1" type="HBoxContainer" parent="MarginContainer/ShedTexture/MarginContainer/VBoxContainer" unique_id=1151017042]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="Slot3" type="Button" parent="MarginContainer/ShedTexture/MarginContainer/VBoxContainer/Row1" unique_id=315540188]
-custom_minimum_size = Vector2(80, 80)
-custom_maximum_size = Vector2(80, 80)
+[node name="Slot3" parent="MarginContainer/ShedTexture/MarginContainer/VBoxContainer/Row1" unique_id=1536969268 instance=ExtResource("3_7xl6w")]
 layout_mode = 2
-icon = ExtResource("2_hkc6v")
-flat = true
-icon_alignment = 1
-expand_icon = true
 
-[node name="Slot4" type="Button" parent="MarginContainer/ShedTexture/MarginContainer/VBoxContainer/Row1" unique_id=577042977]
-custom_minimum_size = Vector2(80, 80)
-custom_maximum_size = Vector2(80, 80)
+[node name="Slot4" parent="MarginContainer/ShedTexture/MarginContainer/VBoxContainer/Row1" unique_id=1143571925 instance=ExtResource("3_7xl6w")]
 layout_mode = 2
-icon = ExtResource("2_hkc6v")
-flat = true
-icon_alignment = 1
-expand_icon = true
 
-[node name="Slot5" type="Button" parent="MarginContainer/ShedTexture/MarginContainer/VBoxContainer/Row1" unique_id=1776991004]
-custom_minimum_size = Vector2(80, 80)
-custom_maximum_size = Vector2(80, 80)
+[node name="Slot5" parent="MarginContainer/ShedTexture/MarginContainer/VBoxContainer/Row1" unique_id=759510122 instance=ExtResource("3_7xl6w")]
 layout_mode = 2
-icon = ExtResource("2_hkc6v")
-flat = true
-icon_alignment = 1
-expand_icon = true
 
 [node name="Row2" type="HBoxContainer" parent="MarginContainer/ShedTexture/MarginContainer/VBoxContainer" unique_id=1923707534]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="Slot6" type="Button" parent="MarginContainer/ShedTexture/MarginContainer/VBoxContainer/Row2" unique_id=133499126]
-custom_minimum_size = Vector2(80, 80)
-custom_maximum_size = Vector2(80, 80)
+[node name="Slot6" parent="MarginContainer/ShedTexture/MarginContainer/VBoxContainer/Row2" unique_id=1091029572 instance=ExtResource("3_7xl6w")]
 layout_mode = 2
-icon = ExtResource("2_hkc6v")
-flat = true
-icon_alignment = 1
-expand_icon = true
 
-[node name="Slot7" type="Button" parent="MarginContainer/ShedTexture/MarginContainer/VBoxContainer/Row2" unique_id=1234555337]
-custom_minimum_size = Vector2(80, 80)
-custom_maximum_size = Vector2(80, 80)
+[node name="Slot7" parent="MarginContainer/ShedTexture/MarginContainer/VBoxContainer/Row2" unique_id=674936251 instance=ExtResource("3_7xl6w")]
 layout_mode = 2
-icon = ExtResource("2_hkc6v")
-flat = true
-icon_alignment = 1
-expand_icon = true
 
-[node name="Slot8" type="Button" parent="MarginContainer/ShedTexture/MarginContainer/VBoxContainer/Row2" unique_id=169224409]
-custom_minimum_size = Vector2(80, 80)
-custom_maximum_size = Vector2(80, 80)
+[node name="Slot8" parent="MarginContainer/ShedTexture/MarginContainer/VBoxContainer/Row2" unique_id=1409656585 instance=ExtResource("3_7xl6w")]
 layout_mode = 2
-icon = ExtResource("2_hkc6v")
-flat = true
-icon_alignment = 1
-expand_icon = true
 
 [node name="Row3" type="HBoxContainer" parent="MarginContainer/ShedTexture/MarginContainer/VBoxContainer" unique_id=675006739]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="Slot9" type="Button" parent="MarginContainer/ShedTexture/MarginContainer/VBoxContainer/Row3" unique_id=126678357]
-custom_minimum_size = Vector2(80, 80)
-custom_maximum_size = Vector2(80, 80)
+[node name="Slot9" parent="MarginContainer/ShedTexture/MarginContainer/VBoxContainer/Row3" unique_id=1314675791 instance=ExtResource("3_7xl6w")]
 layout_mode = 2
-icon = ExtResource("2_hkc6v")
-flat = true
-icon_alignment = 1
-expand_icon = true
 
-[node name="Slot10" type="Button" parent="MarginContainer/ShedTexture/MarginContainer/VBoxContainer/Row3" unique_id=867214949]
-custom_minimum_size = Vector2(80, 80)
-custom_maximum_size = Vector2(80, 80)
+[node name="Slot10" parent="MarginContainer/ShedTexture/MarginContainer/VBoxContainer/Row3" unique_id=550088435 instance=ExtResource("3_7xl6w")]
 layout_mode = 2
-icon = ExtResource("2_hkc6v")
-flat = true
-icon_alignment = 1
-expand_icon = true
 
-[node name="Slot11" type="Button" parent="MarginContainer/ShedTexture/MarginContainer/VBoxContainer/Row3" unique_id=582011842]
-custom_minimum_size = Vector2(80, 80)
-custom_maximum_size = Vector2(80, 80)
+[node name="Slot12" parent="MarginContainer/ShedTexture/MarginContainer/VBoxContainer/Row3" unique_id=1928653387 instance=ExtResource("3_7xl6w")]
 layout_mode = 2
-icon = ExtResource("2_hkc6v")
-flat = true
-icon_alignment = 1
-expand_icon = true
