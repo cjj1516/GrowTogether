@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://c27owif4po4d"]
+
+[ext_resource type="Texture2D" uid="uid://dp8ejlhxroffi" path="res://gui/sprites/shed_box.png" id="1_3c3oa"]
+[ext_resource type="FontFile" uid="uid://b7w4ok5iv3dy4" path="res://gui/fonts/boxpot1.ttf" id="2_5nkoh"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1l3jj"]
+texture = ExtResource("1_3c3oa")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3c3oa"]
+texture = ExtResource("1_3c3oa")
+modulate_color = Color(0.5, 0.5, 0.5, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ntbfw"]
+texture = ExtResource("1_3c3oa")
+modulate_color = Color(0.8, 0.8, 0.8, 1)
+
+[node name="CrateButton" type="Button" unique_id=1365712347]
+custom_minimum_size = Vector2(80, 80)
+custom_maximum_size = Vector2(80, 80)
+theme_override_styles/normal = SubResource("StyleBoxTexture_1l3jj")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_3c3oa")
+theme_override_styles/hover = SubResource("StyleBoxTexture_ntbfw")
+alignment = 2
+icon_alignment = 1
+expand_icon = true
+
+[node name="Label" type="Label" parent="." unique_id=532281421]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 0.9607843, 0.8980392, 1)
+theme_override_colors/font_outline_color = Color(0.1, 0.1, 0.1, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_5nkoh")
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 2

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://du4j8i8ian83a" path="res://world/world.gd" id="1_tcf2h"]
 [ext_resource type="Script" uid="uid://r7kwpuujdfhn" path="res://world/camera.gd" id="2_4717r"]
 [ext_resource type="Texture2D" uid="uid://y53xjgjqrl8a" path="res://world/sprites/plot.png" id="2_fn3g3"]
+[ext_resource type="PackedScene" uid="uid://bfe0e5hikxhjp" path="res://gui/shed_ui.tscn" id="3_sc4t8"]
 [ext_resource type="Shader" uid="uid://ur0tyk6l2m51" path="res://sky/cumulus_sky.gdshader" id="2_sc4t8"]
 [ext_resource type="PackedScene" uid="uid://b3blh0ciudd01" path="res://npcs/NPC.tscn" id="4_fn3g3"]
 [ext_resource type="Script" uid="uid://b1r7psnaet1b6" path="res://world/spawn_manager.gd" id="4_h5o24"]
@@ -43,7 +44,7 @@ use_collision = true
 size = Vector3(15, 0.148, 15)
 material = SubResource("StandardMaterial3D_sc4t8")
 
-[node name="GUI" type="CanvasLayer" parent="." unique_id=2131960766]
+[node name="GUI" parent="." unique_id=1188627741 instance=ExtResource("3_sc4t8")]
 
 [node name="NPC" parent="." unique_id=1856237465 instance=ExtResource("4_fn3g3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.229841, 0)
