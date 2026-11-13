@@ -1,15 +1,32 @@
-[gd_scene format=3 uid="uid://d1w0rkidisdya"]
+[gd_scene load_steps=7 format=3 uid="uid://d1w0rkidisdya"]
 
 [ext_resource type="Script" uid="uid://ovh0a4hjv3wo" path="res://plants/plant.gd" id="1_2vmhr"]
+[ext_resource type="Texture2D" uid="uid://cg5t83y0ybfhh" path="res://world/Textures/planter.png" id="2_2vmhr"]
+[ext_resource type="Texture2D" uid="uid://dgi4d4t1jbwab" path="res://world/Textures/wood.png" id="3_8i23g"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sebxg"]
 
-[node name="Plant" type="Area3D" unique_id=1861089673]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bhq02"]
+albedo_texture = ExtResource("3_8i23g")
+
+[sub_resource type="BoxMesh" id="BoxMesh_12g6i"]
+
+[node name="Plant" type="Area3D"]
 script = ExtResource("1_2vmhr")
 
-[node name="Sprite" type="Sprite3D" parent="." unique_id=397440641]
+[node name="Sprite" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.44743204, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=589776879]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_sebxg")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.13, 0, 0, 0, -5.6824803e-09, -1.032, 0, 0.13, -4.5110152e-08, 0, 0.058474332, 0)
+texture = ExtResource("2_2vmhr")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.0313087, 0, 0, 0, -4.517255e-08, -0.056559067, 0, 1.0334272, -2.472275e-09, 0, 0.028276265, 0)
+material_override = SubResource("StandardMaterial3D_bhq02")
+mesh = SubResource("BoxMesh_12g6i")
+skeleton = NodePath("../Sprite3D")

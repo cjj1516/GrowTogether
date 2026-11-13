@@ -1,13 +1,15 @@
-[gd_scene format=3 uid="uid://tuc1i26umpgd"]
+[gd_scene load_steps=17 format=3 uid="uid://tuc1i26umpgd"]
 
 [ext_resource type="Script" uid="uid://du4j8i8ian83a" path="res://world/world.gd" id="1_tcf2h"]
 [ext_resource type="Script" uid="uid://r7kwpuujdfhn" path="res://world/camera.gd" id="2_4717r"]
 [ext_resource type="Texture2D" uid="uid://y53xjgjqrl8a" path="res://world/sprites/plot.png" id="2_fn3g3"]
 [ext_resource type="PackedScene" uid="uid://bfe0e5hikxhjp" path="res://gui/shed_ui.tscn" id="3_sc4t8"]
 [ext_resource type="Shader" uid="uid://ur0tyk6l2m51" path="res://sky/cumulus_sky.gdshader" id="2_sc4t8"]
+[ext_resource type="Texture2D" uid="uid://du02q8htxpmw2" path="res://world/Textures/lotTexture.png" id="3_ai45w"]
 [ext_resource type="PackedScene" uid="uid://b3blh0ciudd01" path="res://npcs/NPC.tscn" id="4_fn3g3"]
 [ext_resource type="Script" uid="uid://b1r7psnaet1b6" path="res://world/spawn_manager.gd" id="4_h5o24"]
 [ext_resource type="Script" uid="uid://dgtwrqsnjpoop" path="res://world/camera_rig.gd" id="4_mmdvd"]
+[ext_resource type="Texture2D" uid="uid://dkek8p6y6d6fx" path="res://world/Textures/sidewalk.png" id="5_4papg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sc4t8"]
 shader = ExtResource("2_sc4t8")
@@ -27,46 +29,76 @@ sky = SubResource("Sky_sc4t8")
 ambient_light_source = 3
 ambient_light_color = Color(1, 1, 1, 1)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4papg"]
+albedo_texture = ExtResource("3_ai45w")
+uv1_scale = Vector3(5.015, 5.015, 5.015)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sc4t8"]
 albedo_texture = ExtResource("2_fn3g3")
 uv1_scale = Vector3(15, 15, 15)
 uv1_offset = Vector3(0, 0.1, 0)
 
-[node name="World" type="Node3D" unique_id=1874885327]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fyhu2"]
+albedo_texture = ExtResource("5_4papg")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ov2xu"]
+
+[node name="World" type="Node3D"]
 script = ExtResource("1_tcf2h")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1556400846]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_oracd")
 
-[node name="Floor" type="CSGBox3D" parent="." unique_id=1991369096]
-transform = Transform3D(-4.371139e-08, 0, 1.024, 0, 0.061, 0, -1, 0, -4.4760462e-08, 0, -0.42578125, 0)
+[node name="Floor" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, 1.024, 0, 0.061, 0, -1, 0, -4.4760462e-08, 0.024031162, -0.42578125, 0.09637451)
+material_override = SubResource("StandardMaterial3D_4papg")
 use_collision = true
-size = Vector3(15, 0.148, 15)
+size = Vector3(16.492798, 0.148, 16.111511)
 material = SubResource("StandardMaterial3D_sc4t8")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Floor"]
+transform = Transform3D(-3.5788858e-07, 0, -0.11568719, 0, 1, 0, 8.187533, 0, -5.05685e-09, -8.269041, 0.37381697, 0.00016437471)
+material_override = SubResource("StandardMaterial3D_fyhu2")
+mesh = SubResource("PlaneMesh_ov2xu")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Floor"]
+transform = Transform3D(-3.6167404e-07, 0, -0.115687184, 0, 1, 0, 8.274136, 0, -5.05685e-09, 8.324447, 0.37381697, 0.00016508624)
+material_override = SubResource("StandardMaterial3D_fyhu2")
+mesh = SubResource("PlaneMesh_ov2xu")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Floor"]
+transform = Transform3D(8.364266, 0, -1.3322676e-15, 0, 1, 0, 8.526513e-14, 0, 0.11568719, 0.027702808, 0.37381697, 8.102454)
+material_override = SubResource("StandardMaterial3D_fyhu2")
+mesh = SubResource("PlaneMesh_ov2xu")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="Floor"]
+transform = Transform3D(8.364267, 0, -2.220446e-15, 0, 1, 0, 1.1368684e-13, 0, 0.11568719, 0.027702816, 0.37381697, -8.102125)
+material_override = SubResource("StandardMaterial3D_fyhu2")
+mesh = SubResource("PlaneMesh_ov2xu")
 
 [node name="GUI" parent="." unique_id=1188627741 instance=ExtResource("3_sc4t8")]
 
-[node name="NPC" parent="." unique_id=1856237465 instance=ExtResource("4_fn3g3")]
+[node name="NPC" parent="." instance=ExtResource("4_fn3g3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.229841, 0)
 
-[node name="NPC2" parent="." unique_id=794378602 instance=ExtResource("4_fn3g3")]
+[node name="NPC2" parent="." instance=ExtResource("4_fn3g3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0090587, 0.229841, 0.8951905)
 npc_color = 2
 
-[node name="SpawnManager" type="Node3D" parent="." unique_id=630684527]
+[node name="SpawnManager" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.0468616, 0)
 script = ExtResource("4_h5o24")
 npc_scene = ExtResource("4_fn3g3")
 spawn_interval_min = 90.0
 spawn_interval_max = 150.0
 
-[node name="CameraRig" type="Node3D" parent="." unique_id=685102962]
+[node name="CameraRig" type="Node3D" parent="."]
 script = ExtResource("4_mmdvd")
 offset = -2.5
 normal_zoom = 8.0
 focused_zoom = 1.0
 
-[node name="Camera3D" type="Camera3D" parent="CameraRig" unique_id=2050715352]
+[node name="Camera3D" type="Camera3D" parent="CameraRig"]
 transform = Transform3D(1, 0, 0, 0, 0.6890316, 0.7247313, 0, -0.7247313, 0.6890316, -2.3841858e-07, 3.9343166, 9.264206)
 fov = 58.4
 script = ExtResource("2_4717r")
