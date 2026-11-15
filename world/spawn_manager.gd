@@ -4,6 +4,7 @@ class_name SpawnManager
 
 @export_category("Spawning settings")
 @export var npc_scene: PackedScene
+@export var max_npcs: int = 5
 @export var spawn_interval_min: float = 10.0
 @export var spawn_interval_max: float = 15.0
 
@@ -18,9 +19,10 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func _on_spawn_timeout() -> void:
-	spawn_npc()
+	var current_npcs = get_tree().get_nodes_in_group("npcs").size()
+	if current_npcs < max_npcs:
+		spawn_npc()
 	start_random_timer()
-	
 	
 func setup_timer() -> void:
 	spawn_timer = Timer.new()
