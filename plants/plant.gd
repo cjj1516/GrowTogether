@@ -61,8 +61,8 @@ func set_plant_type(plant_resource_name: String):
 	$Sprite.texture = plant_resource.texture
 	pass
 	
-func water_plant(timer_reduction: float = 0):
-	thirst_timer = 0 if timer_reduction == 0 else thirst_timer - min(thirst_timer, timer_reduction)
+func water_plant(timer_reduction: float = thirst_timer):
+	thirst_timer -= timer_reduction
 	return
 
 func add_warnings():
