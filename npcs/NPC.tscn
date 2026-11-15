@@ -48,7 +48,7 @@ render_priority = 1
 texture = ExtResource("6_kol2k")
 
 [node name="DialogueBubble" type="Sprite3D" parent="." unique_id=1570734181]
-transform = Transform3D(0.30516234, 0, 0, 0, 0.31335944, 0, 0, 0, 0.252262, 0, 0.778484, 0)
+transform = Transform3D(0.19082494, 0, 0, 0, 0.17523207, 0, 0, 0, 0.252262, 0, 1.0874523, 0)
 billboard = 1
 texture = ExtResource("13_j1qyq")
 
