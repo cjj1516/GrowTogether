@@ -44,6 +44,14 @@ var base_sprite_scale: Vector3 = Vector3.ONE
 @export var conversation_cooldown: float = 5.0
 @export var seek_search_radius: float = 12.0
 
+@export_category("Identity")
+@export var npc_name: String = "NPC"
+@export var dialogue_options: Array[String] = [
+	"Hello1",
+	"Update1",
+	"Conclusion"
+]
+
 
 @onready var sprite_3d: Sprite3D = $Sprite3D
 @onready var hand_sprite_3d: Sprite3D = $Hand
@@ -126,7 +134,11 @@ func set_color() -> void:
 			sprite_3d.texture = texture_blue
 			hand_sprite_3d.modulate = tint_blue
 
-
+#Get one of the three dialogue options with its index
+func get_dialogue_option(index: int) -> String:
+	if index >= 0 and index < dialogue_options.size():
+		return dialogue_options[index]
+	return ""
 
 #grabs plant from the list
 func get_plant() -> Node3D:

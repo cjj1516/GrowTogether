@@ -29,6 +29,7 @@ texture_orange = ExtResource("2_kol2k")
 texture_purple = ExtResource("3_pnbr5")
 texture_green = ExtResource("4_3tsbl")
 texture_blue = ExtResource("5_qposl")
+move_speed = 2.0
 edge_padding = 10.0
 symbol_list = Array[Texture2D]([ExtResource("6_j1qyq"), ExtResource("7_wsbxu"), ExtResource("8_rg74d"), ExtResource("9_j1qyq"), ExtResource("10_wsbxu"), ExtResource("11_rg74d")])
 
