@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://corhisgqdx3oe"]
+
+[ext_resource type="Script" uid="uid://7pjpb4xowdda" path="res://gui/switch_btn.gd" id="1_1w56i"]
+[ext_resource type="PackedScene" uid="uid://c27owif4po4d" path="res://gui/components/crate_button.tscn" id="1_t2ny5"]
+[ext_resource type="Texture2D" uid="uid://brbii8vkoiw" path="res://gui/sprites/hand_ic.png" id="3_17s2p"]
+[ext_resource type="Texture2D" uid="uid://b3qp3fdcof4f5" path="res://gui/sprites/arrows_ic.png" id="4_g8rx2"]
+
+[node name="switch_btn" type="Control" unique_id=2048467620]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -8.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1w56i")
+
+[node name="CrateButton" parent="." unique_id=1365712347 instance=ExtResource("1_t2ny5")]
+layout_mode = 0
+
+[node name="tool_sprite" type="Sprite2D" parent="." unique_id=307830278]
+position = Vector2(40, 38)
+scale = Vector2(0.49609378, 0.51171875)
+texture = ExtResource("3_17s2p")
+
+[node name="arrows" type="Sprite2D" parent="." unique_id=1775026144]
+position = Vector2(64, 68)
+scale = Vector2(0.36328122, 0.37109378)
+texture = ExtResource("4_g8rx2")
+
+[connection signal="pressed" from="CrateButton" to="." method="_on_crate_button_pressed"]

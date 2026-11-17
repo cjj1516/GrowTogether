@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://b1r7psnaet1b6" path="res://world/spawn_manager.gd" id="4_h5o24"]
 [ext_resource type="Script" uid="uid://dgtwrqsnjpoop" path="res://world/camera_rig.gd" id="4_mmdvd"]
 [ext_resource type="Texture2D" uid="uid://dkek8p6y6d6fx" path="res://world/Textures/sidewalk.png" id="5_4papg"]
+[ext_resource type="PackedScene" uid="uid://corhisgqdx3oe" path="res://gui/switch_btn.tscn" id="11_ov2xu"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sc4t8"]
 shader = ExtResource("2_sc4t8")
@@ -77,6 +78,14 @@ material_override = SubResource("StandardMaterial3D_fyhu2")
 mesh = SubResource("PlaneMesh_ov2xu")
 
 [node name="GUI" parent="." unique_id=1188627741 instance=ExtResource("3_sc4t8")]
+
+[node name="switch_btn" parent="GUI" unique_id=2048467620 instance=ExtResource("11_ov2xu")]
+layout_mode = 1
+offset_left = -1132.0
+offset_top = 15.0
+offset_right = -1132.0
+offset_bottom = 17.0
+scale = Vector2(1.8774862, 1.8774862)
 
 [node name="NPC" parent="." unique_id=1579799764 instance=ExtResource("4_fn3g3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.229841, 0)
