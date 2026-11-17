@@ -1,0 +1,14 @@
+# lines beginning with # are skipped. use them for comments like these
+# empty lines are also skipped.
+# lines beginning with - denote names of characters
+# each line after that is a thing they say
+
+- Example Name
+I have a problem!
+I'm encountering new facets of the problem
+My problem is solved!
+
+- Weird Head Guy
+I hate my weird, mis-shapen head
+Someone complimented my weird, mis-shapen head today
+I love my weird, mis-shapen head

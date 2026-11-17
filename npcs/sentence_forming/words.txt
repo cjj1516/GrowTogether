@@ -1,0 +1,35 @@
+# hello interloper! please keep these lists in alphabetical order so we dont double add anything
+# lines beginning with # are skipped. use them for comments like these
+# lines beginning with - denote word types
+
+- OBJECT NOUN
+# (can say "a ___" and makes sense)
+basket
+computer
+flower
+leader
+paper
+plant
+
+- PLURAL NOUN
+computers
+gardens
+pizzas
+plants
+
+- INTRANSITIVE VERB
+ran
+helping
+watering
+
+- TRANSITIVE VERB
+hate
+helping
+got
+like
+love
+watering
+
+- ADJECTIVE
+cold
+hot

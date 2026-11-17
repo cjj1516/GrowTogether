@@ -1,0 +1,7 @@
+# lines beginning with # are skipped
+# empty lines are also skipped
+# every other line is like mad libs. it'll fill in the space with a word type
+
+I love INTRANSITIVE VERB
+There's an OBJECT NOUN in my OBJECT NOUN!
+My PLURAL NOUN are ADJECTIVE...
