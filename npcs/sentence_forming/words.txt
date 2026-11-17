@@ -2,7 +2,7 @@
 # lines beginning with # are skipped. use them for comments like these
 # lines beginning with - denote word types
 
-- OBJECT NOUNS
+- OBJECT NOUN
 # (can say "a ___" and makes sense)
 basket
 computer
@@ -11,18 +11,18 @@ leader
 paper
 plant
 
-- PLURAL NOUNS
+- PLURAL NOUN
 computers
 gardens
 pizzas
 plants
 
-- INTRANSITIVE VERBS
+- INTRANSITIVE VERB
 ran
 helping
 watering
 
-- TRANSITIVE VERBS
+- TRANSITIVE VERB
 hate
 helping
 got
@@ -30,6 +30,6 @@ like
 love
 watering
 
-- ADJECTIVES
+- ADJECTIVE
 cold
 hot
