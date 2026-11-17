@@ -4,6 +4,8 @@ extends Node
 var watering_cursor = preload("res://gui/sprites/watering_can_ic.png")
 var hand_cursor = preload("res://gui/sprites/hand_ic.png")
 
+
+
 func _ready() -> void:
 	Input.set_custom_mouse_cursor(hand_cursor,0 ,Vector2(64.0,64.0))
 	

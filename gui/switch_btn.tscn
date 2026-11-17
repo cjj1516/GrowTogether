@@ -26,7 +26,7 @@ texture = ExtResource("3_17s2p")
 
 [node name="arrows" type="Sprite2D" parent="." unique_id=1775026144]
 position = Vector2(64, 68)
-scale = Vector2(0.36328122, 0.37109378)
+scale = Vector2(0.3869238, 0.3952448)
 texture = ExtResource("4_g8rx2")
 
 [connection signal="pressed" from="CrateButton" to="." method="_on_crate_button_pressed"]

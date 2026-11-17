@@ -9,8 +9,11 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _process(delta):
+	if (Input.is_key_pressed(KEY_R)):
+		tool_sprite.texture = hand_cursor
+	elif (Input.is_key_pressed(KEY_E)):
+		tool_sprite.texture = watering_cursor
 
 
 func _on_crate_button_pressed() -> void:
