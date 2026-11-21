@@ -23,6 +23,7 @@ config/icon="res://intake/icon.svg"
 
 Enums="*uid://u3rrrj8vj748"
 GameState="*uid://c3bxy0ykub22f"
+SceneManager="*uid://b074s58o5pgq5"
 
 [display]
 

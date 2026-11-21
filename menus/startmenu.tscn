@@ -2,15 +2,15 @@
 
 [ext_resource type="Shader" uid="uid://ct0x5h8am1d8v" path="res://sky/cumulus_2d.gdshader" id="1_r6vld"]
 [ext_resource type="FontFile" uid="uid://b7w4ok5iv3dy4" path="res://gui/fonts/boxpot1.ttf" id="2_veuh7"]
+[ext_resource type="Texture2D" uid="uid://dhq1ul14axd6i" path="res://menus/sprites/citybackground.png" id="2_xga1g"]
 [ext_resource type="Texture2D" uid="uid://yk7qjgai6vri" path="res://npcs/Sprites/green_guy.png" id="3_66rle"]
-[ext_resource type="Texture2D" uid="uid://qdblmm5m1dcx" path="res://menus/grass.png" id="3_g8bsl"]
-[ext_resource type="Texture2D" uid="uid://dhq1ul14axd6i" path="res://menus/citybackground.png" id="3_g8sso"]
-[ext_resource type="Script" uid="uid://b5tlv6se3osut" path="res://menus/menu_npc.gd" id="3_qoyn4"]
+[ext_resource type="Script" uid="uid://b5tlv6se3osut" path="res://menus/scripts/menu_npc.gd" id="3_qoyn4"]
+[ext_resource type="Texture2D" uid="uid://qdblmm5m1dcx" path="res://menus/sprites/grass.png" id="3_t6the"]
 [ext_resource type="Texture2D" uid="uid://ykyyo3i2hi1l" path="res://npcs/Sprites/hand_open.png" id="4_qoyn4"]
-[ext_resource type="Shader" uid="uid://bujljfxu1fln1" path="res://menus/outline.gdshader" id="7_xga1g"]
-[ext_resource type="Script" uid="uid://c1pxuthp25jo" path="res://menus/playbutton.gd" id="8_g8sso"]
+[ext_resource type="Shader" uid="uid://bujljfxu1fln1" path="res://menus/shaders/outline.gdshader" id="7_xga1g"]
+[ext_resource type="Script" uid="uid://c1pxuthp25jo" path="res://menus/scripts/playbutton.gd" id="8_g8sso"]
 [ext_resource type="Texture2D" uid="uid://cte8pefxjgpk2" path="res://npcs/Sprites/orange_guy.png" id="9_07bhu"]
-[ext_resource type="Script" uid="uid://b1k0t7eujp1xf" path="res://menus/find_garden.gd" id="10_7dfop"]
+[ext_resource type="Script" uid="uid://b1k0t7eujp1xf" path="res://menus/scripts/find_garden.gd" id="10_7dfop"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_oracd"]
 shader = ExtResource("1_r6vld")
@@ -80,12 +80,12 @@ grow_vertical = 2
 [node name="city" type="Sprite2D" parent="skybackround" unique_id=911371444]
 position = Vector2(575, 155)
 scale = Vector2(1.3935039, 1.3935039)
-texture = ExtResource("3_g8sso")
+texture = ExtResource("2_xga1g")
 
 [node name="grass" type="Sprite2D" parent="skybackround" unique_id=1786889318]
 position = Vector2(552, 342)
 scale = Vector2(0.6453504, 0.6453504)
-texture = ExtResource("3_g8bsl")
+texture = ExtResource("3_t6the")
 
 [node name="Label" type="Label" parent="." unique_id=334313131]
 layout_mode = 0
