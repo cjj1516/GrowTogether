@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://cglportf1hhf8"]
+
+[ext_resource type="Script" uid="uid://b6ebxarcnk4bf" path="res://vfx/oneshot_particle.gd" id="1_sm23p"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sm23p"]
+transparency = 1
+albedo_color = Color(0.35686275, 0.57254905, 1, 0.92941177)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3luq3"]
+cull_mode = 1
+shading_mode = 0
+albedo_color = Color(1, 1, 1, 0.47843137)
+grow = true
+grow_amount = 0.03
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ocfjn"]
+radial_segments = 6
+rings = 2
+
+[sub_resource type="Curve" id="Curve_ke8fk"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_sm23p"]
+load_path = "res://.godot/imported/watering_can_ic.png-1ddc57ce229cc570168be0b674b9c67b.s3tc.ctex"
+
+[node name="water_splash" type="CPUParticles3D" unique_id=60502423]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_sm23p")
+material_overlay = SubResource("StandardMaterial3D_3luq3")
+emitting = false
+amount = 40
+lifetime = 0.8
+one_shot = true
+mesh = SubResource("CapsuleMesh_ocfjn")
+emission_shape = 1
+emission_sphere_radius = 0.1
+particle_flag_align_y = true
+gravity = Vector3(0, -9, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 3.0
+scale_amount_min = 0.05
+scale_amount_max = 0.1
+scale_amount_curve = SubResource("Curve_ke8fk")
+script = ExtResource("1_sm23p")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1553717049]
+transform = Transform3D(0.46611834, -0.17532028, 0, 0.15194967, 0.5378095, 0, 0, 0, 1, -0.29569733, -0.0679838, 0)
+flip_h = true
+texture = SubResource("CompressedTexture2D_sm23p")

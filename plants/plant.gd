@@ -15,6 +15,7 @@ var being_watered: bool
 @export var drink_speed: float = 3.0
 var drink_timer: float
 var warning_list: Array[Warning]
+const water_splash = preload("res://vfx/water_splash.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -63,6 +64,10 @@ func set_plant_type(plant_resource_name: String):
 	
 func water_plant(timer_reduction: float = thirst_timer):
 	thirst_timer -= timer_reduction
+	var splash := water_splash.instantiate()
+	self.add_child(splash)
+	splash.position = Vector3(0,1,0)
+	splash.emitting = true
 	return
 
 func add_warnings():

@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://c3xpmndv4uorg"]
+
+[ext_resource type="Script" uid="uid://b6ebxarcnk4bf" path="res://vfx/oneshot_particle.gd" id="1_7p3de"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1fua0"]
+albedo_color = Color(0.21223715, 0.15025371, 0.03774819, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_oracd"]
+material = SubResource("StandardMaterial3D_1fua0")
+
+[sub_resource type="Curve" id="Curve_b1lmw"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="dirt_splash" type="CPUParticles3D" unique_id=109148203]
+emitting = false
+amount = 40
+lifetime = 0.49
+one_shot = true
+explosiveness = 1.0
+mesh = SubResource("BoxMesh_oracd")
+emission_shape = 1
+emission_sphere_radius = 1.0
+particle_flag_align_y = true
+direction = Vector3(0, 1, 0)
+gravity = Vector3(0, -40, 0)
+initial_velocity_min = 7.0
+initial_velocity_max = 7.0
+scale_amount_min = 0.05
+scale_amount_max = 0.1
+scale_amount_curve = SubResource("Curve_b1lmw")
+script = ExtResource("1_7p3de")
