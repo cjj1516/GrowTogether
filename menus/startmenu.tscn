@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dhq1ul14axd6i" path="res://menus/citybackground.png" id="3_g8sso"]
 [ext_resource type="Script" uid="uid://b5tlv6se3osut" path="res://menus/menu_npc.gd" id="3_qoyn4"]
 [ext_resource type="Texture2D" uid="uid://ykyyo3i2hi1l" path="res://npcs/Sprites/hand_open.png" id="4_qoyn4"]
+[ext_resource type="Shader" uid="uid://bujljfxu1fln1" path="res://menus/outline.gdshader" id="7_xga1g"]
 [ext_resource type="Script" uid="uid://c1pxuthp25jo" path="res://menus/playbutton.gd" id="8_g8sso"]
 [ext_resource type="Texture2D" uid="uid://cte8pefxjgpk2" path="res://npcs/Sprites/orange_guy.png" id="9_07bhu"]
 [ext_resource type="Script" uid="uid://b1k0t7eujp1xf" path="res://menus/find_garden.gd" id="10_7dfop"]
@@ -24,6 +25,24 @@ shader_parameter/cellSize = 2.0
 default_font = ExtResource("2_veuh7")
 default_font_size = 52
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t6the"]
+shader = ExtResource("7_xga1g")
+shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/width = 100.0
+shader_parameter/pattern = 1
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+shader_parameter/number_of_images = Vector2(1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xga1g"]
+shader = ExtResource("7_xga1g")
+shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/width = 100.0
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+shader_parameter/number_of_images = Vector2(1, 1)
+
 [sub_resource type="Theme" id="Theme_b1lmw"]
 default_font = ExtResource("2_veuh7")
 default_font_size = 58
@@ -31,6 +50,15 @@ default_font_size = 58
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oracd"]
 radius = 358.5265
 height = 1140.5095
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4aw64"]
+shader = ExtResource("7_xga1g")
+shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/width = 100.0
+shader_parameter/pattern = 1
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+shader_parameter/number_of_images = Vector2(1, 1)
 
 [node name="startmenu" type="Control" unique_id=249341143]
 layout_mode = 3
@@ -95,6 +123,7 @@ texture = ExtResource("9_07bhu")
 
 [node name="HandOpen" type="Sprite2D" parent="menunpc2/GreenGuy" unique_id=627046536]
 modulate = Color(0.90588236, 0.5254902, 0.1254902, 1)
+material = SubResource("ShaderMaterial_t6the")
 position = Vector2(-228.87668, 116.3144)
 rotation = 0.8730812
 scale = Vector2(0.14448754, 0.14399712)
@@ -102,6 +131,7 @@ texture = ExtResource("4_qoyn4")
 
 [node name="HandOpen2" type="Sprite2D" parent="menunpc2/GreenGuy" unique_id=1229944646]
 modulate = Color(0.90588236, 0.5254902, 0.1254902, 1)
+material = SubResource("ShaderMaterial_xga1g")
 position = Vector2(217.62039, 138.82684)
 rotation = -0.74964464
 scale = Vector2(0.14448754, 0.14399712)
@@ -135,6 +165,7 @@ texture = ExtResource("3_66rle")
 
 [node name="HandOpen" type="Sprite2D" parent="menunpc/GreenGuy" unique_id=671993243]
 modulate = Color(0.12941177, 0.9098039, 0.30588236, 1)
+material = SubResource("ShaderMaterial_4aw64")
 position = Vector2(-228.87668, 116.3144)
 rotation = 0.8730812
 scale = Vector2(0.14448754, 0.14399712)
@@ -142,6 +173,7 @@ texture = ExtResource("4_qoyn4")
 
 [node name="HandOpen2" type="Sprite2D" parent="menunpc/GreenGuy" unique_id=1028617330]
 modulate = Color(0.12941177, 0.9098039, 0.30588236, 1)
+material = SubResource("ShaderMaterial_4aw64")
 position = Vector2(217.62039, 138.82684)
 rotation = -0.74964464
 scale = Vector2(0.14448754, 0.14399712)
